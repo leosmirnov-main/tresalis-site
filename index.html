@@ -66,7 +66,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- Page stack: each section pins, the next slides over it like a sheet laid on a table ---------- */
 main{position:relative}
 main>section,main>section.hero{position:sticky;top:0;will-change:transform;transform-origin:50% 0;box-shadow:0 72px 0 0 var(--sec-bg,var(--paper))}
-main>section.partner,main>footer{position:relative;top:auto;will-change:auto}
+main>section.partner,main>footer{position:relative;top:auto;will-change:auto;box-shadow:none}
 main>section:not(.partner)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;box-shadow:0 -18px 48px rgba(35,31,32,.28),0 -2px 10px rgba(35,31,32,.18);pointer-events:none}
 main>section:not(.partner)::after{content:"";position:absolute;inset:0;background:#1B1B20;opacity:0;pointer-events:none;z-index:5;transition:none}
 .hero::after{z-index:3}
