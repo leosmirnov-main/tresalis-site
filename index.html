@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://tresalis.com/">
 <meta property="og:image" content="https://tresalis.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="assets/tresalis-mark-primary.svg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#FBF9F6">
@@ -527,8 +527,24 @@ textarea.control{height:140px;resize:vertical}
 <script>
 /* Anchor navigation: sticky sections break native #hash jumps, so scroll to each section's true document offset. */
 (function(){
-  function docTop(el){ var y=0; while(el){ y+=el.offsetTop; el=el.offsetParent; } return y; }
-  function go(id, smooth){ var el=document.getElementById(id); if(!el) return false; var top = id==='top' ? 0 : docTop(el); window.scrollTo({top:top, behavior: smooth?'smooth':'auto'}); return true; }
+  // Sticky sections report their pinned position via offsetTop, so derive the natural position from the flow: sum of preceding siblings' heights.
+  function docTop(el){
+    var main=document.querySelector('main'); var sec=el; while(sec && sec.parentElement!==main) sec=sec.parentElement;
+    if(!sec) { var y=0; while(el){ y+=el.offsetTop; el=el.offsetParent; } return y; }
+    var top=main.getBoundingClientRect().top+window.scrollY; for (var n=main.firstElementChild; n && n!==sec; n=n.nextElementSibling) top+=n.offsetHeight;
+    return top;
+  }
+  var tween=null;
+  function scrollToY(target, smooth){
+    var max=document.documentElement.scrollHeight-window.innerHeight; target=Math.max(0,Math.min(target,max));
+    if(tween) cancelAnimationFrame(tween);
+    if(!smooth){ window.scrollTo(0,target); return; }
+    var start=window.scrollY, dist=target-start, dur=Math.min(900, 350+Math.abs(dist)*0.12), t0=null;
+    function step(now){ if(t0===null) t0=now; var k=Math.min(1,(now-t0)/dur); var e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2; window.scrollTo(0, start+dist*e); if(k<1) tween=requestAnimationFrame(step); else { tween=null; requestAnimationFrame(function(){ window.dispatchEvent(new Event('scroll')); }); } }
+    tween=requestAnimationFrame(step);
+    setTimeout(function(){ if(tween && Math.abs(window.scrollY-start)<2){ cancelAnimationFrame(tween); tween=null; window.scrollTo(0,target); } }, 120);
+  }
+  function go(id, smooth){ var el=document.getElementById(id); if(!el) return false; var top = id==='top' ? 0 : docTop(el); scrollToY(top, smooth); return true; }
   document.addEventListener('click', function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a) return; var id=a.getAttribute('href').slice(1); if(!id) return;
     if(go(id, !window.matchMedia('(prefers-reduced-motion: reduce)').matches)){ e.preventDefault(); history.replaceState(null,'','#'+id); }
@@ -548,8 +564,9 @@ textarea.control{height:140px;resize:vertical}
 /* Page stack: as the next section covers this one, scale it down slightly and dim it. */
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var items=Array.prototype.slice.call(document.querySelectorAll('main>section'));
+  var items=Array.prototype.slice.call(document.querySelectorAll('main>section:not(.partner)'));
   var ticking=false;
+  function layout(){ var vh=window.innerHeight; for(var i=0;i<items.length;i++){ var h=items[i].offsetHeight; items[i].style.top = (h>vh ? (vh-h) : 0)+'px'; } }
   function update(){
     ticking=false; var vh=window.innerHeight;
     for(var i=0;i<items.length-1;i++){
@@ -563,7 +580,8 @@ textarea.control{height:140px;resize:vertical}
   }
   var style=document.createElement('style'); style.textContent='main>section::after{opacity:var(--dim,0)}'; document.head.appendChild(style);
   function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
-  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); update();
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',function(){ layout(); onScroll(); }); layout(); update();
+  window.addEventListener('load',function(){ layout(); update(); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ layout(); update(); });
 })();
 
 (function(){
