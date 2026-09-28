@@ -65,12 +65,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ---------- Page stack: each section pins, the next slides over it like a sheet laid on a table ---------- */
 main{position:relative}
-main>section,main>section.hero,main>footer{position:sticky;top:0;will-change:transform;transform-origin:50% 0}
-main>section::before,main>footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;box-shadow:0 -18px 48px rgba(35,31,32,.28),0 -2px 10px rgba(35,31,32,.18);pointer-events:none}
-main>section::after,main>footer::after{content:"";position:absolute;inset:0;background:#1B1B20;opacity:0;pointer-events:none;z-index:5;transition:none}
+main>section,main>section.hero{position:sticky;top:0;will-change:transform;transform-origin:50% 0}
+main>section.partner,main>footer{position:relative;top:auto;will-change:auto}
+main>section:not(.partner)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;box-shadow:0 -18px 48px rgba(35,31,32,.28),0 -2px 10px rgba(35,31,32,.18);pointer-events:none}
+main>section:not(.partner)::after{content:"";position:absolute;inset:0;background:#1B1B20;opacity:0;pointer-events:none;z-index:5;transition:none}
 .hero::after{z-index:3}
-main>section.is-covered,main>footer.is-covered{--p:0}
-@media (prefers-reduced-motion:reduce){main>section,main>footer{position:static;transform:none!important}main>section::after{display:none}}
+@media (prefers-reduced-motion:reduce){main>section{position:static;transform:none!important}main>section::after{display:none}}
 
 /* ---------- Nav ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:28px var(--gutter);background:transparent;border-bottom:1px solid transparent;transition:background-color .4s ease,border-color .4s ease}
@@ -170,7 +170,7 @@ main>section.is-covered,main>footer.is-covered{--p:0}
 .crit .txt .body-m{max-width:560px}
 
 /* ---------- Partner / form ---------- */
-.partner{background:var(--white)}
+.partner{background:var(--white);z-index:2}
 .partner .left{flex:0 0 480px;display:flex;flex-direction:column;gap:24px}
 .contact{display:flex;flex-direction:column;gap:8px;padding-top:16px}
 .contact a{text-decoration:underline;text-underline-offset:3px}
@@ -548,7 +548,7 @@ textarea.control{height:140px;resize:vertical}
 /* Page stack: as the next section covers this one, scale it down slightly and dim it. */
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var items=Array.prototype.slice.call(document.querySelectorAll('main>section, main>footer'));
+  var items=Array.prototype.slice.call(document.querySelectorAll('main>section'));
   var ticking=false;
   function update(){
     ticking=false; var vh=window.innerHeight;
@@ -561,7 +561,7 @@ textarea.control{height:140px;resize:vertical}
       el.style.setProperty('--dim', String(0.38*e));
     }
   }
-  var style=document.createElement('style'); style.textContent='main>section::after,main>footer::after{opacity:var(--dim,0)}'; document.head.appendChild(style);
+  var style=document.createElement('style'); style.textContent='main>section::after{opacity:var(--dim,0)}'; document.head.appendChild(style);
   function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
   window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); update();
 })();
