@@ -605,6 +605,9 @@ textarea.control{height:140px;resize:vertical}
         form.reset(); document.querySelectorAll('select.control').forEach(function(s){s.classList.add('is-placeholder');});
         note.textContent='Thank you — your submission has reached us. We will come back to you personally.'; note.className='form-note ok';
         btn.textContent='Submitted';
+      } else if(/activation/i.test(String(data.message||''))){
+        note.textContent='Almost there — the form is being activated on our side. Please email us directly at deals@tresalis.com for now.'; note.className='form-note err';
+        btn.disabled=false; btn.textContent='Submit your brand';
       } else { throw new Error(data.message||'Submission failed'); }
     }catch(err){
       note.textContent='Something went wrong sending the form. Please email us directly at deals@tresalis.com.'; note.className='form-note err';
