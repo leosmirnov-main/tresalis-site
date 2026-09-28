@@ -31,6 +31,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
+body{touch-action:manipulation}
 body{background:var(--paper);color:var(--text);font-family:var(--inter);font-size:17px;line-height:28px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -274,6 +275,7 @@ textarea.control{height:140px;resize:vertical}
   .press-item .date{order:2}
   .press-item .read{padding-top:0}
   .form{padding:24px}
+  .control{font-size:16px} /* ≥16px stops iOS Safari auto-zooming the page when a field is focused */
   .row{flex-direction:column;gap:20px}
   .footer{padding:56px var(--gutter) 40px}
   .footer-top{flex-direction:column;gap:40px}
