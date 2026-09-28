@@ -460,7 +460,7 @@ textarea.control{height:140px;resize:vertical}
       </div>
       <div class="row">
         <div class="field"><label for="f-brand">Brand name</label><input class="control" id="f-brand" name="brand" type="text" placeholder="Brand" autocomplete="organization" required></div>
-        <div class="field"><label for="f-web">Website</label><input class="control" id="f-web" name="website" type="url" placeholder="https://" autocomplete="url"></div>
+        <div class="field"><label for="f-web">Website</label><input class="control" id="f-web" name="website" type="text" inputmode="url" placeholder="yourbrand.com" autocomplete="url"></div>
       </div>
       <div class="row">
         <div class="field"><label for="f-cat">Category</label>
@@ -594,6 +594,7 @@ textarea.control{height:140px;resize:vertical}
   form.addEventListener('submit', async function(e){
     e.preventDefault();
     note.className='form-note';
+    var web=document.getElementById('f-web'); if(web && web.value.trim() && !/^https?:\/\//i.test(web.value.trim())) web.value='https://'+web.value.trim();
     if(!form.checkValidity()){ form.reportValidity(); return; }
     btn.disabled=true; btn.textContent='Sending…';
     try{
