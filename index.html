@@ -65,7 +65,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ---------- Page stack: each section pins, the next slides over it like a sheet laid on a table ---------- */
 main{position:relative}
-main>section,main>section.hero{position:sticky;top:0;will-change:transform;transform-origin:50% 0}
+main>section,main>section.hero{position:sticky;top:0;will-change:transform;transform-origin:50% 0;box-shadow:0 72px 0 0 var(--sec-bg,var(--paper))}
 main>section.partner,main>footer{position:relative;top:auto;will-change:auto}
 main>section:not(.partner)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;box-shadow:0 -18px 48px rgba(35,31,32,.28),0 -2px 10px rgba(35,31,32,.18);pointer-events:none}
 main>section:not(.partner)::after{content:"";position:absolute;inset:0;background:#1B1B20;opacity:0;pointer-events:none;z-index:5;transition:none}
@@ -82,7 +82,7 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .nav.is-solid .nav-links a:hover{color:var(--crimson)}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;display:flex;align-items:center;min-height:100vh;padding:200px var(--gutter) 160px;background:#EEF0EE;color:var(--ink);overflow:hidden;isolation:isolate}
+.hero{--sec-bg:#EEF0EE;position:relative;display:flex;align-items:center;min-height:100vh;padding:200px var(--gutter) 160px;background:#EEF0EE;color:var(--ink);overflow:hidden;isolation:isolate}
 .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:88% 50%;transform-origin:80% 50%;animation:heroDrift 28s ease-in-out infinite alternate;will-change:transform}
 .hero-bg .fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(251,249,246,.97) 0%,rgba(251,249,246,.94) 36%,rgba(251,249,246,.62) 52%,rgba(251,249,246,.12) 68%,rgba(251,249,246,0) 82%)}
@@ -101,7 +101,7 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 @media (prefers-reduced-motion:reduce){.hero-bg img{animation:none;transform:scale(1.03)}}
 
 /* ---------- Thesis ---------- */
-.thesis{background:var(--white);display:flex;flex-direction:column;gap:80px}
+.thesis{--sec-bg:var(--white);background:var(--white);display:flex;flex-direction:column;gap:80px}
 .thesis .left{flex:0 0 560px;display:flex;flex-direction:column;gap:24px}
 .thesis .right{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:24px;padding-top:44px}
 .thesis .right p{max-width:560px}
@@ -115,15 +115,16 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .rail-seg{flex:1 1 0;height:1px;background:var(--sand)}
 
 /* ---------- Pillars ---------- */
-.pillars{background:var(--stone);display:flex;flex-direction:column;gap:64px}
+.pillars{--sec-bg:var(--stone);background:var(--stone);display:flex;flex-direction:column;gap:64px}
 .pillars .display-m{max-width:900px}
 .pillars .body-l{max-width:720px}
 .cards{display:flex;gap:24px}
 .card{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px;padding:40px 32px;background:var(--white);border-radius:var(--radius)}
 .card .spacer{height:8px}
+.card .icon{width:56px;height:56px;margin-bottom:4px}
 
 /* ---------- How we build ---------- */
-.how{background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;gap:72px}
+.how{--sec-bg:var(--ink);background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;gap:72px}
 .how .display-m{max-width:900px;color:var(--on-ink)}
 .how .header .body-l{max-width:720px;color:var(--sand)}
 .model{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
@@ -141,7 +142,7 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .quote .rule{width:48px}
 
 /* ---------- Deal highlight ---------- */
-.deal{background:var(--paper);display:flex;flex-direction:column;gap:48px}
+.deal{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:48px}
 .deal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
 .deal-head .txt{display:flex;flex-direction:column;gap:20px;max-width:760px}
 .deal-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none}
@@ -160,7 +161,7 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .deal-card .body-l{max-width:640px;color:var(--white)}
 
 /* ---------- What we look for ---------- */
-.look{background:var(--paper);display:flex;flex-direction:column;gap:64px}
+.look{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:64px}
 .look .left{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
 .criteria{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
 .crit{display:flex;gap:32px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--sand)}
@@ -328,28 +329,28 @@ textarea.control{height:140px;resize:vertical}
   </div>
   <div class="cards">
     <article class="card">
-      <span class="rule"></span>
+      <img class="icon" src="assets/icons/look-well.svg" alt="" width="56" height="56" aria-hidden="true">
       <h3 class="heading-s">Look well</h3>
       <p class="body-s c-sec">Beauty evolves from looking younger to skin, hair and scalp health.</p>
       <span class="spacer"></span>
       <p class="caption c-muted">Skincare · Haircare · Scalp health · Beauty devices</p>
     </article>
     <article class="card">
-      <span class="rule"></span>
+      <img class="icon" src="assets/icons/feel-well.svg" alt="" width="56" height="56" aria-hidden="true">
       <h3 class="heading-s">Feel well</h3>
       <p class="body-s c-sec">Fragrance moves beyond smelling good to mood, emotion and daily ritual.</p>
       <span class="spacer"></span>
       <p class="caption c-muted">Fragrance · Aromatherapy · Sleep · Stress · Emotional wellbeing</p>
     </article>
     <article class="card">
-      <span class="rule"></span>
+      <img class="icon" src="assets/icons/live-well.svg" alt="" width="56" height="56" aria-hidden="true">
       <h3 class="heading-s">Live well</h3>
       <p class="body-s c-sec">From beauty and wellbeing into health from within, and prevention.</p>
       <span class="spacer"></span>
       <p class="caption c-muted">Supplements · Nutrition · Gut health · Women’s health · Metabolic health</p>
     </article>
     <article class="card">
-      <span class="rule"></span>
+      <img class="icon" src="assets/icons/age-well.svg" alt="" width="56" height="56" aria-hidden="true">
       <h3 class="heading-s">Age well</h3>
       <p class="body-s c-sec">Permission to grow into the consumer-facing longevity ecosystem.</p>
       <span class="spacer"></span>
