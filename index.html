@@ -30,7 +30,7 @@
   --gutter:120px; --section-y:120px; --radius:4px; --radius-s:2px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--text);font-family:var(--inter);font-size:17px;line-height:28px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -74,53 +74,31 @@ main>section.is-covered,main>footer.is-covered{--p:0}
 
 /* ---------- Nav ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:28px var(--gutter);background:transparent;border-bottom:1px solid transparent;transition:background-color .4s ease,border-color .4s ease}
-.nav .logo-dark{display:none}.nav .logo-light{display:block}
 .nav.is-solid{background:var(--paper);border-bottom-color:var(--sand)}
-.nav.is-solid .logo-dark{display:block}.nav.is-solid .logo-light{display:none}
 .nav-links{display:flex;align-items:center;gap:40px}
-.nav-links a{color:var(--on-ink);transition:color .3s}
-.nav-links a:hover{color:#E9767C}
+.nav-links a{color:var(--ink);transition:color .3s}
+.nav-links a:hover{color:var(--crimson)}
 .nav.is-solid .nav-links a{color:var(--ink)}
 .nav.is-solid .nav-links a:hover{color:var(--crimson)}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;display:flex;align-items:center;gap:80px;padding:216px var(--gutter) 128px;background:#1E1D22;color:var(--on-ink);overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,#1B1B20 0%,#26262C 55%,#3A3536 80%,#8C6F63 100%)}
-.hero-bg canvas{position:absolute;inset:-10%;width:120%;height:120%;filter:blur(28px)}
-.hero-bg .grain{position:absolute;inset:0;opacity:.10;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero-bg .fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(27,27,32,.45) 0%,rgba(27,27,32,0) 50%)}
-.hero-text{position:relative;z-index:1}
-.hero-text{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:32px}
-.hero .eyebrow{color:#E9767C}
-.hero h1{max-width:800px;color:var(--on-ink)}
-.hero .lede{max-width:600px;color:var(--sand)}
-.hero .btn-secondary{color:var(--on-ink);border-color:rgba(251,249,246,.55)}
-.hero .btn-secondary:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero{position:relative;display:flex;align-items:center;min-height:100vh;padding:200px var(--gutter) 160px;background:#EEF0EE;color:var(--ink);overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:88% 50%;transform-origin:80% 50%;animation:heroDrift 28s ease-in-out infinite alternate;will-change:transform}
+.hero-bg .fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(251,249,246,.97) 0%,rgba(251,249,246,.94) 36%,rgba(251,249,246,.62) 52%,rgba(251,249,246,.12) 68%,rgba(251,249,246,0) 82%)}
+.hero-bg .fade-b{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,rgba(251,249,246,.55),rgba(251,249,246,0))}
+@keyframes heroDrift{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.09) translate(-1.2%,.8%)}}
+.hero-text{position:relative;z-index:1;flex:0 1 720px;min-width:0;display:flex;flex-direction:column;gap:32px}
+.hero .eyebrow{color:var(--crimson)}
+.hero h1{max-width:800px;color:var(--ink)}
+.hero .lede{max-width:560px;color:var(--text-2)}
 .hero-buttons{display:flex;align-items:center;gap:16px}
-/* Wordmark assembly: minimal geometric artifacts drift, then the logo's own glyphs assemble into place. */
-.hero-logo{position:relative;z-index:1;flex:0 0 520px;width:520px;height:420px}
-.hero-logo .artifacts{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.hero-logo .art{stroke:rgba(251,249,246,.28);stroke-width:1;fill:none;transform-box:fill-box;transform-origin:center;animation:drift 14s ease-in-out infinite}
-.hero-logo .art.dot{fill:rgba(251,249,246,.55);stroke:none}
-.hero-logo .art.accent{stroke:rgba(202,53,61,.55)}
-.hero-logo .a1{animation-duration:17s}.hero-logo .a2{animation-duration:21s;animation-delay:-6s}.hero-logo .a3{animation-duration:12s;animation-delay:-2s}
-.hero-logo .a4{animation-duration:15s;animation-delay:-9s}.hero-logo .a5{animation-duration:13s;animation-delay:-4s}.hero-logo .a6{animation-duration:19s;animation-delay:-11s}
-.hero-logo .a7{animation-duration:16s;animation-delay:-3s}.hero-logo .a8{animation-duration:14s;animation-delay:-7s}.hero-logo .a9{animation-duration:18s;animation-delay:-1s}
-.hero-logo .a10{animation:drift 20s ease-in-out infinite,spin 40s linear infinite;animation-delay:-5s}
-.wordmark-assembly{position:absolute;left:50%;top:50%;width:440px;height:auto;transform:translate(-50%,-50%);overflow:visible}
-.wordmark-assembly .piece{fill:#FBF9F6;transform-box:fill-box;transform-origin:center;animation:assemble 16s cubic-bezier(.22,.9,.24,1) infinite;animation-delay:calc(var(--i) * .09s)}
-.wordmark-assembly .piece.accent{fill:#CA353D}
-@keyframes assemble{
-  0%{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}
-  3%{opacity:.9}
-  17%{transform:none;opacity:1}
-  82%{transform:none;opacity:1}
-  94%{opacity:.6}
-  100%{transform:translate(calc(var(--dx) * -.7),calc(var(--dy) * -.7)) rotate(calc(var(--r) * -1));opacity:0}
-}
-@keyframes drift{0%,100%{transform:translate(0,0)}33%{transform:translate(6px,-10px)}66%{transform:translate(-8px,6px)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.wordmark-assembly .piece,.hero-logo .art{animation:none!important;transform:none;opacity:1}}
+.hero-partner{position:absolute;right:var(--gutter);bottom:48px;z-index:1;display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;background:rgba(251,249,246,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(218,211,200,.8);border-radius:var(--radius-s);color:var(--ink);text-decoration:none;transition:background-color .2s}
+.hero-partner:hover{background:var(--paper)}
+.hero-partner::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--crimson);flex:none;margin-left:4px}
+.hero-partner img{height:22px;width:auto;filter:invert(1) brightness(.15)}
+.hero-partner span{font-size:13px;line-height:18px;color:var(--text-2)}
+@media (prefers-reduced-motion:reduce){.hero-bg img{animation:none;transform:scale(1.03)}}
 
 /* ---------- Thesis ---------- */
 .thesis{background:var(--white);display:flex;flex-direction:column;gap:80px}
@@ -231,8 +209,6 @@ textarea.control{height:140px;resize:vertical}
 /* ---------- Mobile (Figma: Mobile 390) ---------- */
 @media (max-width:1100px){
   :root{--gutter:64px}
-  .hero-logo{flex-basis:380px;width:380px;height:320px}
-  .wordmark-assembly{width:320px}
   .display-xl{font-size:72px;line-height:76px}
   .thesis .left,.look .left,.partner .left,.platform{flex-basis:auto}
   .columns{flex-direction:column;gap:48px}
@@ -250,11 +226,13 @@ textarea.control{height:140px;resize:vertical}
   .display-m{font-size:32px;line-height:38px}
   .heading-s{font-size:24px;line-height:30px}
   .body-l{font-size:18px;line-height:28px}
-  .hero{flex-direction:column;align-items:flex-start;gap:48px;padding:150px var(--gutter) 80px}
+  .hero{align-items:flex-end;min-height:92vh;padding:150px var(--gutter) 112px}
+  .hero-bg img{object-position:50% 40%}
+  .hero-bg .fade{background:linear-gradient(to top,rgba(251,249,246,.95) 0%,rgba(251,249,246,.85) 45%,rgba(251,249,246,.2) 75%,rgba(251,249,246,0) 100%)}
   .hero-buttons{flex-direction:column;align-items:stretch;width:100%}
   .hero-buttons .btn{width:100%}
-  .hero-logo{flex-basis:auto;width:100%;max-width:342px;height:240px;align-self:center}
-  .wordmark-assembly{width:260px}
+  .hero-partner{right:auto;left:var(--gutter);bottom:32px}
+  .hero-partner span{display:none}
   .rail{flex-direction:column;gap:12px}
   .rail-item{flex-direction:row;align-items:center;gap:12px;padding-right:0}
   .rail-seg{flex:0 0 24px}
@@ -282,7 +260,7 @@ textarea.control{height:140px;resize:vertical}
 <body>
 
 <header class="nav">
-  <a href="#top" aria-label="Tresalis home"><img class="logo logo-light" src="assets/tresalis-logo-reversed.svg" alt="Tresalis" width="144" height="30"><img class="logo logo-dark" src="assets/tresalis-logo-primary.svg" alt="" width="144" height="30"></a>
+  <a href="#top" aria-label="Tresalis home"><img class="logo" src="assets/tresalis-logo-primary.svg" alt="Tresalis" width="144" height="30"></a>
   <nav class="nav-links eyebrow" aria-label="Sections">
     <a href="#thesis">Thesis</a>
     <a href="#pillars">Pillars</a>
@@ -296,45 +274,26 @@ textarea.control{height:140px;resize:vertical}
 
 <section class="hero">
   <div class="hero-bg" aria-hidden="true">
-    <canvas id="hero-canvas"></canvas>
-    <span class="grain"></span>
+    <picture>
+      <source media="(max-width:720px)" srcset="assets/vyrao-hero-mobile.jpg">
+      <img src="assets/vyrao-hero.jpg" alt="" width="2000" height="1116" fetchpriority="high">
+    </picture>
     <span class="fade"></span>
+    <span class="fade-b"></span>
   </div>
   <div class="hero-text">
-    <p class="eyebrow c-crimson">A European house of brands for healthy longevity</p>
+    <p class="eyebrow">A European house of brands for healthy longevity</p>
     <h1 class="display-xl">Look better.<br>Feel better.<br>Live healthier,<br>for longer.</h1>
-    <p class="body-l c-sec lede">Tresalis acquires and builds exceptional consumer brands at the convergence of beauty, wellbeing and health — united by one long-term consumer ambition.</p>
+    <p class="body-l lede">Tresalis acquires and builds exceptional consumer brands at the convergence of beauty, wellbeing and health — united by one long-term consumer ambition.</p>
     <div class="hero-buttons">
       <a class="btn btn-primary" href="#partner">Partner with Tresalis</a>
       <a class="btn btn-secondary" href="#thesis">Read our thesis</a>
     </div>
   </div>
-  <div class="hero-logo" aria-hidden="true">
-    <svg class="artifacts" viewBox="0 0 520 420" fill="none">
-      <circle class="art a1" cx="92" cy="96" r="34"/>
-      <circle class="art a2" cx="438" cy="318" r="52"/>
-      <circle class="art a3 dot" cx="452" cy="88" r="3"/>
-      <circle class="art a4 dot" cx="66" cy="332" r="2.5"/>
-      <circle class="art a5 dot" cx="272" cy="392" r="2"/>
-      <path class="art a6 arc" d="M120 350a70 70 0 0 0 96 40"/>
-      <path class="art a7 arc accent" d="M380 60a48 48 0 0 1 60 44"/>
-      <line class="art a8" x1="24" y1="210" x2="84" y2="210"/>
-      <line class="art a9" x1="470" y1="196" x2="500" y2="196"/>
-      <rect class="art a10" x="300" y="34" width="10" height="10"/>
-    </svg>
-    <svg class="wordmark-assembly" viewBox="34.871 21.25 255.98 53.399">
-<g class="piece accent" style="--dx:-40px;--dy:-70px;--r:-25deg;--i:0"><path transform="matrix(1,0,0,-1,122.1254,63.448999)" d="M0 0C-.99-1.68-2.31-3.14-3.97-4.37-6.52-6.26-9.67-7.2-13.44-7.2-16.51-7.2-19.26-6.51-21.69-5.13-23.93-3.86-25.72-2.11-27.06 .12L-21.44 2.88C-21.01 2.08-20.44 1.36-19.74 .73-18.03-.83-15.93-1.6-13.44-1.6-9.87-1.6-7.34-.11-5.87 2.88Z"/></g>
-<g class="piece" style="--dx:-60px;--dy:40px;--r:18deg;--i:1"><path transform="matrix(1,0,0,-1,49.3602,43.432096)" d="M0 0V-17.774C0-18.979 .282-19.843 .845-20.367 1.408-20.892 2.37-21.154 3.73-21.154H7.809V-26.69H2.564C-.428-26.69-2.72-25.991-4.312-24.592-5.906-23.193-6.702-20.921-6.702-17.774V0H-10.489V5.42H-6.702V13.403H0V5.42H7.809V0Z"/></g>
-<g class="piece" style="--dx:-30px;--dy:-60px;--r:12deg;--i:2"><path transform="matrix(1,0,0,-1,78.41,38.857397)" d="M0 0C1.612 .913 3.526 1.37 5.74 1.37V-5.507H4.05C1.447-5.507-.524-6.168-1.865-7.488-3.205-8.81-3.875-11.102-3.875-14.365V-31.265H-10.519V.845H-3.875V-3.817C-2.904-2.186-1.612-.913 0 0"/></g>
-<g class="piece" style="--dx:20px;--dy:60px;--r:-30deg;--i:3"><path transform="matrix(1,0,0,-1,99.5954,51.178998)" d="M0 0C.31 2.48 1.28 4.45 2.91 5.91 4.54 7.37 6.5 8.1 8.8 8.1 11.32 8.1 13.44 7.36 15.15 5.88 16.86 4.41 17.73 2.44 17.77 0ZM22.72 6.14C21.4 8.53 19.56 10.39 17.19 11.71 14.82 13.03 12.12 13.69 9.09 13.69 5.94 13.69 3.15 13.01 .73 11.65-1.7 10.29-3.59 8.36-4.93 5.85-6.27 3.35-6.94 .44-6.94-2.86-6.94-3.72-6.89-4.56-6.8-5.36H24.47C24.63-4.39 24.71-3.31 24.71-2.1 24.71 1.01 24.04 3.76 22.72 6.14"/></g>
-<g class="piece" style="--dx:-15px;--dy:-75px;--r:40deg;--i:4"><path transform="matrix(1,0,0,-1,140.2973,69.276798)" d="M0 0C-2.001 .912-3.584 2.156-4.749 3.729-5.915 5.303-6.536 7.06-6.614 9.003H.263C.379 7.643 1.029 6.506 2.215 5.594 3.399 4.681 4.886 4.225 6.673 4.225 8.538 4.225 9.984 4.583 11.015 5.303 12.043 6.021 12.559 6.944 12.559 8.071 12.559 9.274 11.985 10.169 10.84 10.751 9.693 11.334 7.877 11.975 5.391 12.675 2.981 13.335 1.021 13.976-.495 14.598-2.01 15.219-3.321 16.171-4.429 17.453-5.536 18.735-6.09 20.425-6.09 22.523-6.09 24.232-5.585 25.796-4.574 27.214-3.564 28.632-2.117 29.75-.232 30.565 1.651 31.381 3.817 31.789 6.265 31.789 9.916 31.789 12.859 30.866 15.094 29.021 17.327 27.175 18.521 24.659 18.678 21.474H12.034C11.918 22.911 11.335 24.058 10.286 24.913 9.237 25.767 7.818 26.194 6.032 26.194 4.283 26.194 2.943 25.864 2.011 25.204 1.078 24.543 .612 23.668 .612 22.582 .612 21.727 .923 21.008 1.545 20.425 2.166 19.842 2.923 19.385 3.817 19.056 4.711 18.725 6.032 18.307 7.78 17.803 10.111 17.181 12.024 16.55 13.521 15.909 15.016 15.268 16.308 14.326 17.396 13.083 18.482 11.839 19.046 10.188 19.085 8.129 19.085 6.303 18.58 4.671 17.57 3.234 16.56 1.796 15.132 .67 13.287-.146 11.441-.962 9.275-1.37 6.789-1.37 4.264-1.37 2.001-.913 0 0"/></g>
-<g class="piece" style="--dx:45px;--dy:50px;--r:-14deg;--i:5"><path transform="matrix(1,0,0,-1,193.851,48.268999)" d="M0 0C-.913 1.632-2.107 2.875-3.583 3.73-5.061 4.584-6.653 5.012-8.362 5.012-10.072 5.012-11.665 4.594-13.141 3.759-14.617 2.923-15.813 1.699-16.725 .087-17.638-1.525-18.094-3.438-18.094-5.652-18.094-7.867-17.638-9.81-16.725-11.48-15.813-13.151-14.607-14.423-13.111-15.297-11.616-16.171-10.033-16.608-8.362-16.608-6.653-16.608-5.061-16.181-3.583-15.326-2.107-14.472-.913-13.219 0-11.567 .913-9.917 1.37-7.983 1.37-5.769 1.37-3.555 .913-1.631 0 0M-22.901 2.914C-21.562 5.4-19.735 7.333-17.424 8.712-15.113 10.091-12.558 10.781-9.761 10.781-7.235 10.781-5.031 10.286-3.146 9.295-1.263 8.304 .243 7.071 1.37 5.595V10.257H8.071V-21.853H1.37V-17.074C.243-18.59-1.292-19.853-3.233-20.862-5.177-21.872-7.392-22.377-9.877-22.377-12.636-22.377-15.161-21.669-17.453-20.25-19.746-18.833-21.562-16.852-22.901-14.306-24.242-11.762-24.912-8.877-24.912-5.652-24.912-2.428-24.242 .427-22.901 2.914"/></g>
-<g class="piece" style="--dx:30px;--dy:-65px;--r:8deg;--i:6"><path transform="matrix(1,0,0,-1,0,101.937)" d="M221.911 31.815H215.26799V74.939H221.911Z"/></g>
-<g class="piece" style="--dx:70px;--dy:45px;--r:22deg;--i:7"><path transform="matrix(1,0,0,-1,0,101.937)" d="M241.899 31.815H235.256V63.925004H241.899ZM235.606 69.402C234.789 70.218 234.381 71.228 234.381 72.433 234.381 73.637 234.789 74.648 235.606 75.463 236.421 76.279 237.431 76.687 238.636 76.687 239.801 76.687 240.792 76.279 241.608 75.463 242.423 74.648 242.831 73.637 242.831 72.433 242.831 71.228 242.423 70.218 241.608 69.402 240.792 68.586 239.801 68.179 238.636 68.179 237.431 68.179 236.421 68.586 235.606 69.402"/></g>
-<g class="piece" style="--dx:60px;--dy:-60px;--r:-18deg;--i:8"><path transform="matrix(1,0,0,-1,260.1097,69.276798)" d="M0 0C-2.001 .912-3.584 2.156-4.749 3.729-5.915 5.303-6.536 7.06-6.614 9.003H.263C.379 7.643 1.029 6.506 2.215 5.594 3.399 4.681 4.886 4.225 6.673 4.225 8.538 4.225 9.984 4.583 11.015 5.303 12.043 6.021 12.559 6.944 12.559 8.071 12.559 9.274 11.985 10.169 10.84 10.751 9.693 11.334 7.877 11.975 5.391 12.675 2.981 13.335 1.021 13.976-.495 14.598-2.01 15.219-3.321 16.171-4.429 17.453-5.536 18.735-6.09 20.425-6.09 22.523-6.09 24.232-5.585 25.796-4.574 27.214-3.564 28.632-2.117 29.75-.232 30.565 1.651 31.381 3.817 31.789 6.265 31.789 9.916 31.789 12.859 30.866 15.094 29.021 17.327 27.175 18.521 24.659 18.678 21.474H12.034C11.918 22.911 11.335 24.058 10.286 24.913 9.237 25.767 7.818 26.194 6.032 26.194 4.283 26.194 2.943 25.864 2.011 25.204 1.078 24.543 .612 23.668 .612 22.582 .612 21.727 .923 21.008 1.545 20.425 2.166 19.842 2.923 19.385 3.817 19.056 4.711 18.725 6.032 18.307 7.78 17.803 10.111 17.181 12.024 16.55 13.521 15.909 15.016 15.268 16.308 14.326 17.396 13.083 18.482 11.839 19.046 10.188 19.085 8.129 19.085 6.303 18.58 4.671 17.57 3.234 16.56 1.796 15.132 .67 13.287-.146 11.441-.962 9.275-1.37 6.789-1.37 4.264-1.37 2.001-.913 0 0"/></g>
-<g class="piece" style="--dx:85px;--dy:30px;--r:35deg;--i:9"><path transform="matrix(1,0,0,-1,284.0675,39.719697)" d="M0 0H.564C.677 0 .769 .028 .841 .084 .912 .14 .948 .224 .948 .336 .948 .448 .912 .53 .841 .582 .769 .634 .677 .66 .564 .66H0ZM1.297-.15C1.185-.282 1.028-.368 .828-.408L1.549-1.44 .937-1.452 .276-.432H0V-1.452H-.516V1.128H.601C.864 1.128 1.074 1.058 1.23 .918 1.387 .778 1.465 .588 1.465 .348 1.465 .148 1.408-.018 1.297-.15M1.818-1.62C2.175-1.244 2.353-.764 2.353-.18 2.353 .404 2.175 .884 1.818 1.26 1.463 1.636 .996 1.824 .421 1.824-.164 1.824-.634 1.636-.989 1.26-1.346 .884-1.523 .404-1.523-.18-1.523-.764-1.346-1.244-.989-1.62-.634-1.996-.164-2.184 .421-2.184 .996-2.184 1.463-1.996 1.818-1.62M1.639 1.92C1.994 1.712 2.274 1.424 2.479 1.056 2.683 .688 2.784 .276 2.784-.18 2.784-.636 2.683-1.046 2.479-1.41 2.274-1.774 1.994-2.06 1.639-2.268 1.282-2.476 .877-2.58 .421-2.58-.035-2.58-.443-2.476-.804-2.268-1.163-2.06-1.445-1.774-1.649-1.41-1.854-1.046-1.955-.636-1.955-.18-1.955 .276-1.854 .688-1.649 1.056-1.445 1.424-1.163 1.712-.804 1.92-.443 2.128-.035 2.232 .421 2.232 .877 2.232 1.282 2.128 1.639 1.92"/></g>
-    </svg>
-  </div>
+  <a class="hero-partner" href="#deal" aria-label="Deal highlight: Vyrao">
+    <img src="assets/vyrao-wordmark.svg" alt="Vyrao" width="76" height="22">
+    <span>Deal highlight · Functional fragrance</span>
+  </a>
 </section>
 
 <section class="section thesis" id="thesis">
@@ -565,6 +524,17 @@ textarea.control{height:140px;resize:vertical}
 </main>
 
 <script>
+/* Anchor navigation: sticky sections break native #hash jumps, so scroll to each section's true document offset. */
+(function(){
+  function docTop(el){ var y=0; while(el){ y+=el.offsetTop; el=el.offsetParent; } return y; }
+  function go(id, smooth){ var el=document.getElementById(id); if(!el) return false; var top = id==='top' ? 0 : docTop(el); window.scrollTo({top:top, behavior: smooth?'smooth':'auto'}); return true; }
+  document.addEventListener('click', function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return; var id=a.getAttribute('href').slice(1); if(!id) return;
+    if(go(id, !window.matchMedia('(prefers-reduced-motion: reduce)').matches)){ e.preventDefault(); history.replaceState(null,'','#'+id); }
+  });
+  if(location.hash.length>1){ setTimeout(function(){ go(location.hash.slice(1), false); }, 50); }
+})();
+
 /* Nav: transparent over the hero, paper once the next section reaches it. */
 (function(){
   var nav=document.querySelector('.nav'), hero=document.querySelector('.hero'); if(!nav||!hero) return;
@@ -586,8 +556,8 @@ textarea.control{height:140px;resize:vertical}
       var p=Math.min(1,Math.max(0,1-top/vh));       // 0 = next section not yet arrived, 1 = fully covered
       var e=0.5-0.5*Math.cos(Math.PI*p);              // ease
       var el=items[i];
-      el.style.transform='scale('+(1-0.06*e)+') translateY('+(-24*e)+'px)';
-      el.style.setProperty('--dim', String(0.45*e));
+      el.style.transform='translateY('+(-56*e)+'px)';
+      el.style.setProperty('--dim', String(0.38*e));
     }
   }
   var style=document.createElement('style'); style.textContent='main>section::after,main>footer::after{opacity:var(--dim,0)}'; document.head.appendChild(style);
@@ -595,48 +565,6 @@ textarea.control{height:140px;resize:vertical}
   window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); update();
 })();
 
-/* Hero background — original generative animation: slow-drifting warm-neutral forms with a faint crimson pulse. */
-(function(){
-  var canvas=document.getElementById('hero-canvas'); if(!canvas) return;
-  var ctx=canvas.getContext('2d'); var hero=canvas.closest('.hero');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W,H,raf=null,running=false,t0=performance.now();
-  // Dusk sky: ink above, a warm sand/blush haze rising from below, slow drift, a faint crimson breath.
-  var haze=[
-    {c:[214,188,164],rx:.75,ry:.34,ax:.55,ay:1.02,fx:.010,px:0.0,a:.85},   // warm sand horizon
-    {c:[236,205,180],rx:.42,ry:.22,ax:.72,ay:1.00,fx:.014,px:2.2,a:.70},   // peach bloom
-    {c:[202,53,61], rx:.34,ry:.16,ax:.36,ay:1.03,fx:.012,px:4.1,a:.22},    // crimson, faint
-    {c:[120,110,115],rx:.60,ry:.30,ax:.25,ay:.92,fx:.008,px:1.1,a:.55},    // cool mist
-    {c:[90,96,110], rx:.80,ry:.40,ax:.60,ay:.70,fx:.006,px:3.0,a:.35}      // blue-grey band
-  ];
-  var bokeh=[]; for (var k=0;k<7;k++){ bokeh.push({ax:(k*0.137+0.05)%1, ay:0.55+0.45*((k*0.31)%1), r:0.05+0.09*((k*0.53)%1), f:0.006+0.008*((k*0.71)%1), p:k*1.7, a:0.05+0.06*((k*0.43)%1), warm:k%2===0}); }
-  function size(){ var r=hero.getBoundingClientRect(); var s=Math.min(window.devicePixelRatio||1,1); W=canvas.width=Math.max(2,Math.round(r.width*1.2*s*0.5)); H=canvas.height=Math.max(2,Math.round(r.height*1.2*s*0.5)); }
-  function ell(x,y,rx,ry,c,a){ var g=ctx.createRadialGradient(0,0,0,0,0,1); g.addColorStop(0,'rgba('+c.join(',')+','+a+')'); g.addColorStop(1,'rgba('+c.join(',')+',0)'); ctx.save(); ctx.translate(x,y); ctx.scale(rx,ry); ctx.fillStyle=g; ctx.beginPath(); ctx.arc(0,0,1,0,Math.PI*2); ctx.fill(); ctx.restore(); }
-  function draw(now){
-    var t=(now-t0)/1000;
-    var sky=ctx.createLinearGradient(0,0,0,H); sky.addColorStop(0,'#1B1B20'); sky.addColorStop(.55,'#26262C'); sky.addColorStop(.82,'#3B3537'); sky.addColorStop(1,'#8C6F63');
-    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
-    var base=Math.max(W,H);
-    for (var i=0;i<haze.length;i++){ var f=haze[i];
-      var x=W*(f.ax+0.12*Math.sin(t*f.fx*Math.PI*2+f.px)); var y=H*(f.ay+0.03*Math.cos(t*f.fx*1.3*Math.PI*2+f.px));
-      var br=1+0.08*Math.sin(t*0.04*Math.PI*2+f.px);
-      ell(x,y,base*f.rx*br,base*f.ry*br,f.c,f.a); }
-    for (var j=0;j<bokeh.length;j++){ var b=bokeh[j];
-      var bx=W*(b.ax+0.08*Math.sin(t*b.f*Math.PI*2+b.p)); var by=H*(b.ay+0.05*Math.cos(t*b.f*0.8*Math.PI*2+b.p));
-      ell(bx,by,base*b.r,base*b.r,b.warm?[232,200,176]:[150,160,180],b.a); }
-    // crimson breath near the mark, every ~8s
-    var p=(t%8)/8; var pa=0.10*Math.sin(p*Math.PI); ell(W*0.72,H*0.5,base*(0.18+0.10*p),base*(0.18+0.10*p),[202,53,61],pa);
-  }
-  function loop(now){ if(!running) return; draw(now); raf=requestAnimationFrame(loop); }
-  function start(){ if(running||reduce) return; running=true; raf=requestAnimationFrame(loop); }
-  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); raf=null; }
-  size(); draw(t0+2500);
-  if(!reduce){
-    if('IntersectionObserver' in window){ new IntersectionObserver(function(e){ e[0].isIntersecting?start():stop(); },{threshold:0}).observe(hero); } else start();
-    document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
-  }
-  var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ size(); draw(performance.now()); },120); });
-})();
 (function(){
   document.getElementById('year').textContent = new Date().getFullYear();
   document.querySelectorAll('select.control').forEach(function(s){
