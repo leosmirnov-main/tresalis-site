@@ -160,6 +160,24 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .deal-card .display-l{max-width:760px;color:var(--white)}
 .deal-card .body-l{max-width:640px;color:var(--white)}
 
+/* ---------- In the press (Figma: In the press) ---------- */
+.press{--sec-bg:var(--stone);background:var(--stone);display:flex;flex-direction:column;gap:64px}
+.press-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.press-head .txt{display:flex;flex-direction:column;gap:20px;max-width:760px}
+.press-head>a{flex:none;color:var(--crimson)}
+.press-head>a:hover{color:var(--crimson-deep)}
+.press-list{display:flex;flex-direction:column}
+.press-item{display:flex;align-items:flex-start;gap:40px;padding:32px 0;border-bottom:1px solid var(--sand)}
+.press-item:first-child{border-top:1px solid var(--sand)}
+.press-item .meta{display:contents}
+.press-item .date{flex:0 0 160px;padding-top:6px;color:var(--muted)}
+.press-item .pub{flex:0 0 240px;padding-top:10px;color:var(--ink)}
+.press-item .txt{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px}
+.press-item .txt a{color:var(--ink)}
+.press-item .txt a:hover{color:var(--crimson)}
+.press-item .read{flex:none;padding-top:8px;color:var(--crimson)}
+.press-item .read:hover{color:var(--crimson-deep)}
+
 /* ---------- What we look for ---------- */
 .look{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:64px}
 .look .left{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
@@ -248,6 +266,13 @@ textarea.control{height:140px;resize:vertical}
   .wordmark{width:110px}
   .deal-card .display-l{font-size:36px;line-height:42px}
   .deal-card .body-l{font-size:17px;line-height:26px}
+  .press{gap:40px}
+  .press-head{flex-direction:column;align-items:flex-start;gap:20px}
+  .press-item{flex-direction:column;gap:12px;padding:28px 0}
+  .press-item .meta{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%}
+  .press-item .date,.press-item .pub{flex:none;padding-top:0}
+  .press-item .date{order:2}
+  .press-item .read{padding-top:0}
   .form{padding:24px}
   .row{flex-direction:column;gap:20px}
   .footer{padding:56px var(--gutter) 40px}
@@ -267,6 +292,7 @@ textarea.control{height:140px;resize:vertical}
     <a href="#thesis">Thesis</a>
     <a href="#pillars">Pillars</a>
     <a href="#how">How we build</a>
+    <a href="#press">Press</a>
     <a href="#look">What we look for</a>
   </nav>
   <a class="btn btn-primary" href="#partner">Partner with us</a>
@@ -415,6 +441,29 @@ textarea.control{height:140px;resize:vertical}
   </article>
 </section>
 
+<section class="section press" id="press">
+  <div class="press-head">
+    <div class="txt">
+      <p class="eyebrow c-crimson">In the press</p>
+      <h2 class="display-m">Coverage of Tresalis and our brands.</h2>
+    </div>
+    <a class="label" href="mailto:deals@tresalis.com?subject=Press%20enquiry">Press enquiries →</a>
+  </div>
+  <ul class="press-list" role="list">
+    <li class="press-item">
+      <div class="meta">
+        <time class="body-s date" datetime="2026-09-28">28 Sep 2026</time>
+        <p class="eyebrow pub">The Business of Fashion</p>
+      </div>
+      <div class="txt">
+        <h3 class="heading-s"><a href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener">Vyrao Acquired by Brand Platform Tresalis</a></h3>
+        <p class="body-m c-sec">The Business of Fashion on Tresalis’s acquisition of Vyrao, the London-based functional fragrance house.</p>
+      </div>
+      <a class="label read" href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener">Read the article →</a>
+    </li>
+  </ul>
+</section>
+
 <section class="section look" id="look">
   <div class="columns">
     <div class="left">
@@ -505,6 +554,7 @@ textarea.control{height:140px;resize:vertical}
         <a class="body-s" href="#thesis">Thesis</a>
         <a class="body-s" href="#pillars">Pillars</a>
         <a class="body-s" href="#how">How we build</a>
+        <a class="body-s" href="#press">In the press</a>
         <a class="body-s" href="#look">What we look for</a>
         <a class="body-s" href="#partner">Partner with us</a>
       </div>
@@ -572,7 +622,8 @@ textarea.control{height:140px;resize:vertical}
     ticking=false; var vh=window.innerHeight;
     for(var i=0;i<items.length-1;i++){
       var next=items[i+1]; var top=next.getBoundingClientRect().top;
-      var p=Math.min(1,Math.max(0,1-top/vh));       // 0 = next section not yet arrived, 1 = fully covered
+      var base=Math.min(vh, items[i].offsetHeight);   // sections shorter than the viewport are covered over their own height
+      var p=Math.min(1,Math.max(0,1-top/base));     // 0 = next section not yet arrived, 1 = fully covered
       var e=0.5-0.5*Math.cos(Math.PI*p);              // ease
       var el=items[i];
       el.style.transform='translateY('+(-56*e)+'px)';
