@@ -445,7 +445,7 @@ textarea.control{height:140px;resize:vertical}
       </div>
     </div>
 
-    <form class="form" id="deal-form" action="https://formsubmit.co/ajax/deals@tresalis.com" method="POST" novalidate>
+    <form class="form" id="deal-form" action="https://formsubmit.co/ajax/deals@tresalis.com" data-worker="" method="POST" novalidate>
       <input type="hidden" name="_subject" value="New brand submission — tresalis.com">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -598,9 +598,10 @@ textarea.control{height:140px;resize:vertical}
     if(!form.checkValidity()){ form.reportValidity(); return; }
     btn.disabled=true; btn.textContent='Sending…';
     try{
-      var fd=new FormData(form);
-      var res=await fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-      var data=await res.json().catch(function(){return {};});
+      var fd=new FormData(form); var res, data;
+      var worker=form.getAttribute('data-worker');
+      if(worker){ try{ res=await fetch(worker,{method:'POST',body:fd,headers:{'Accept':'application/json'}}); data=await res.json().catch(function(){return {};}); }catch(e){ res=null; } }
+      if(!res || !res.ok){ res=await fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}}); data=await res.json().catch(function(){return {};}); }
       if(res.ok && String(data.success)!=='false'){
         form.reset(); document.querySelectorAll('select.control').forEach(function(s){s.classList.add('is-placeholder');});
         note.textContent='Thank you — your submission has reached us. We will come back to you personally.'; note.className='form-note ok';

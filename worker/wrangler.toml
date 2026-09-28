@@ -1,0 +1,9 @@
+name = "tresalis-forms"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+TO_EMAILS = "deals@tresalis.com,fernandotamez@hotmail.com"
+FROM_EMAIL = "Tresalis <deals@tresalis.com>"
+ALLOWED_ORIGINS = "https://tresalis.com,https://www.tresalis.com"
+# Secret (set with `wrangler secret put RESEND_API_KEY` or in the dashboard): RESEND_API_KEY
