@@ -170,13 +170,19 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .press-list{display:flex;flex-direction:column}
 .press-item{display:flex;align-items:flex-start;gap:40px;padding:32px 0;border-bottom:1px solid var(--sand)}
 .press-item:first-child{border-top:1px solid var(--sand)}
-.press-item .meta{display:contents}
-.press-item .date{flex:0 0 160px;padding-top:6px;color:var(--muted)}
-.press-item .pub{flex:0 0 240px;padding-top:10px;color:var(--ink)}
-.press-item .txt{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px}
-.press-item .txt a{color:var(--ink)}
-.press-item .txt a:hover{color:var(--crimson)}
-.press-item .read{flex:none;padding-top:8px;color:var(--crimson)}
+.press-item .thumb{flex:none;display:block;width:200px;height:250px;border-radius:var(--radius);overflow:hidden;background:var(--sand)}
+.press-item .thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.press-item .thumb picture{display:block;height:100%}
+.press-item .txt{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:16px}
+.press-item .meta{display:flex;align-items:center;gap:16px}
+.press-item .pub{color:var(--ink)}
+.press-item .date{color:var(--muted)}
+.press-item .copy{display:flex;flex-direction:column;gap:8px}
+.press-item .copy h3{max-width:760px}
+.press-item .copy p{max-width:640px}
+.press-item .copy a{color:var(--ink)}
+.press-item .copy a:hover{color:var(--crimson)}
+.press-item .read{align-self:flex-start;padding-top:4px;color:var(--crimson)}
 .press-item .read:hover{color:var(--crimson-deep)}
 
 /* ---------- What we look for ---------- */
@@ -209,6 +215,8 @@ textarea.control{height:140px;resize:vertical}
 .consent input:checked{background:var(--ink);border-color:var(--ink)}
 .consent input:checked::after{content:"";position:absolute;left:5px;top:2px;width:5px;height:9px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg)}
 .consent label{color:var(--text-2)}
+.consent label a{text-decoration:underline;text-underline-offset:3px}
+.consent label a:hover{color:var(--crimson)}
 .submit{width:100%;padding:18px 28px}
 .submit[disabled]{opacity:.6;cursor:default}
 .form-note{display:none;padding:14px 16px;border-radius:var(--radius-s);font-size:15px;line-height:24px}
@@ -270,9 +278,10 @@ textarea.control{height:140px;resize:vertical}
   .press{gap:40px}
   .press-head{flex-direction:column;align-items:flex-start;gap:20px}
   .press-item{flex-direction:column;gap:12px;padding:28px 0}
-  .press-item .meta{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%}
-  .press-item .date,.press-item .pub{flex:none;padding-top:0}
-  .press-item .date{order:2}
+  .press-item .thumb{width:100%;height:auto;aspect-ratio:16/10}
+  .press-item .txt{gap:12px}
+  .press-item .meta{justify-content:space-between;padding-top:8px}
+  .press-item .read{padding-top:0}
   .press-item .read{padding-top:0}
   .form{padding:24px}
   .control{font-size:16px} /* ≥16px stops iOS Safari auto-zooming the page when a field is focused */
@@ -453,16 +462,23 @@ textarea.control{height:140px;resize:vertical}
   </div>
   <ul class="press-list" role="list">
     <li class="press-item">
-      <div class="meta">
-        <time class="body-s date" datetime="2026-09-28">28 Sep 2026</time>
-        <p class="eyebrow pub">The Business of Fashion</p>
-      </div>
+      <a class="thumb" href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <picture>
+          <source media="(max-width:720px)" srcset="assets/press/bof-vyrao-wide.jpg">
+          <img src="assets/press/bof-vyrao.jpg" alt="" width="480" height="600" loading="lazy">
+        </picture>
+      </a>
       <div class="txt">
-        <h3 class="heading-s"><a href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener">Vyrao Acquired by Brand Platform Tresalis</a></h3>
-        <p class="body-m c-sec">The Business of Fashion on Tresalis’s acquisition of Vyrao, the London-based functional fragrance house.</p>
+        <div class="meta">
+          <p class="eyebrow pub">The Business of Fashion</p>
+          <time class="body-s date" datetime="2026-09-28">28 Sep 2026</time>
+        </div>
+        <div class="copy">
+          <h3 class="heading-s"><a href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener">Vyrao Acquired by Brand Platform Tresalis</a></h3>
+          <p class="body-m c-sec">The Business of Fashion on Tresalis’s acquisition of Vyrao, the London-based functional fragrance house.</p>
+        </div>
+        <a class="label read" href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener">Read the article →</a>
       </div>
-      <a class="label read" href="https://www.businessoffashion.com/news/beauty/vyrao-acquired/" target="_blank" rel="noopener">Read the article →</a>
-    </li>
   </ul>
 </section>
 
@@ -539,7 +555,7 @@ textarea.control{height:140px;resize:vertical}
       <div class="field"><label for="f-msg">Tell us about the brand</label><textarea class="control" id="f-msg" name="message" placeholder="What makes it distinctive, who buys it, and why now?" required></textarea></div>
       <div class="consent">
         <input type="checkbox" id="f-consent" name="consent" value="yes" required>
-        <label class="caption" for="f-consent">I agree that Tresalis may store and process this information to evaluate a potential partnership, in line with its privacy notice.</label>
+        <label class="caption" for="f-consent">I agree that Tresalis may store and process this information to evaluate a potential partnership, in line with its <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a>.</label>
       </div>
       <button class="btn btn-primary submit" type="submit">Submit your brand</button>
       <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
