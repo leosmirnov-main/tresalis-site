@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tresalis — A European house of brands for healthy longevity</title>
-<meta name="description" content="Tresalis acquires and builds exceptional consumer brands at the convergence of beauty, wellbeing and health — united by one ambition: to look better, feel better and live healthier for longer.">
+<title>Tresalis — A house of brands for healthy longevity</title>
+<meta name="description" content="Tresalis acquires and grows distinctive consumer brands where beauty, wellbeing and health meet. Look better. Feel better. Live healthier for longer.">
 <link rel="canonical" href="https://tresalis.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tresalis — A European house of brands for healthy longevity">
-<meta property="og:description" content="We acquire and grow distinctive brands across skincare, haircare, fragrance, wellbeing and consumer health.">
+<meta property="og:title" content="Tresalis — A house of brands for healthy longevity">
+<meta property="og:description" content="Skincare, haircare, fragrance and wellbeing. Founder-led brands on one shared platform.">
 <meta property="og:url" content="https://tresalis.com/">
 <meta property="og:image" content="https://tresalis.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -67,9 +67,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- Page stack: each section pins, the next slides over it like a sheet laid on a table ---------- */
 main{position:relative}
 main>section,main>section.hero{position:sticky;top:0;will-change:transform;transform-origin:50% 0;box-shadow:0 72px 0 0 var(--sec-bg,var(--paper))}
-main>section.partner,main>footer{position:relative;top:auto;will-change:auto;box-shadow:none}
-main>section:not(.partner)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;box-shadow:0 -18px 48px rgba(35,31,32,.28),0 -2px 10px rgba(35,31,32,.18);pointer-events:none}
-main>section:not(.partner)::after{content:"";position:absolute;inset:0;background:#1B1B20;opacity:0;pointer-events:none;z-index:5;transition:none}
+main>section.contact,main>footer{position:relative;top:auto;will-change:auto;box-shadow:none}
+main>section:not(.contact)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;box-shadow:0 -18px 48px rgba(35,31,32,.28),0 -2px 10px rgba(35,31,32,.18);pointer-events:none}
+main>section:not(.contact)::after{content:"";position:absolute;inset:0;background:#1B1B20;opacity:0;pointer-events:none;z-index:5;transition:none}
 .hero::after{z-index:3}
 @media (prefers-reduced-motion:reduce){main>section{position:static;transform:none!important}main>section::after{display:none}}
 
@@ -94,72 +94,115 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .hero h1{max-width:800px;color:var(--ink)}
 .hero .lede{max-width:560px;color:var(--text-2)}
 .hero-buttons{display:flex;align-items:center;gap:16px}
-.hero-partner{position:absolute;right:var(--gutter);bottom:48px;z-index:1;display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;background:rgba(251,249,246,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(218,211,200,.8);border-radius:var(--radius-s);color:var(--ink);text-decoration:none;transition:background-color .2s}
-.hero-partner:hover{background:var(--paper)}
-.hero-partner::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--crimson);flex:none;margin-left:4px}
-.hero-partner img{height:22px;width:auto;filter:invert(1) brightness(.15)}
-.hero-partner span{font-size:13px;line-height:18px;color:var(--text-2)}
+.hero-partner-x{position:absolute;right:var(--gutter);bottom:48px;z-index:1;display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;background:rgba(251,249,246,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(218,211,200,.8);border-radius:var(--radius-s);color:var(--ink);text-decoration:none;transition:background-color .2s}
+.hero-partner-x:hover{background:var(--paper)}
+.hero-partner-x::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--crimson);flex:none;margin-left:4px}
+.hero-partner-x img{height:22px;width:auto;filter:invert(1) brightness(.15)}
+.hero-partner-x span{font-size:13px;line-height:18px;color:var(--text-2)}
 @media (prefers-reduced-motion:reduce){.hero-bg img{animation:none;transform:scale(1.03)}}
 
-/* ---------- Thesis ---------- */
-.thesis{--sec-bg:var(--white);background:var(--white);display:flex;flex-direction:column;gap:80px}
-.thesis .left{flex:0 0 560px;display:flex;flex-direction:column;gap:24px}
-.thesis .right{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:24px;padding-top:44px}
-.thesis .right p{max-width:560px}
+
+/* ---------- Intro strip (Figma v2: Intro strip) ---------- */
+.strip{--sec-bg:var(--white);background:var(--white);padding:64px var(--gutter);display:flex;flex-direction:column;gap:48px}
+.forces-row{display:flex;justify-content:space-between;align-items:center;gap:40px}
+.forces-list{list-style:none;display:flex;align-items:center;gap:24px}
+.forces-list i{width:6px;height:6px;border-radius:50%;background:var(--crimson);flex:none}
+.facts dd{margin:0}
+.facts{display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--sand)}
+.fact{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
+
+/* ---------- 01 · The consumer shift ---------- */
+.shift{--sec-bg:var(--white);background:var(--white);display:flex;flex-direction:column;gap:80px}
+.shift .left{flex:0 0 560px;display:flex;flex-direction:column;gap:24px}
+.shift .right{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:24px;padding-top:44px}
+.shift .right p{max-width:560px}
 .convergence{display:flex;flex-direction:column;gap:24px}
 .rail{display:flex}
 .rail-item{flex:1 1 0;display:flex;flex-direction:column;gap:20px;padding-right:24px}
 .rail-line{display:flex;align-items:center}
 .rail-dot{width:12px;height:12px;border-radius:50%;background:var(--ink);flex:none}
+.rail-seg{flex:1 1 0;height:1px;background:var(--sand)}
+.rail-label{display:flex;gap:10px;align-items:flex-start}
+.rail-label .txt{display:flex;flex-direction:column;gap:4px}
 .rail-item.is-last .rail-dot{background:var(--crimson)}
 .rail-item.is-last .heading-xs{color:var(--crimson)}
-.rail-seg{flex:1 1 0;height:1px;background:var(--sand)}
 
-/* ---------- Pillars ---------- */
-.pillars{--sec-bg:var(--stone);background:var(--stone);display:flex;flex-direction:column;gap:64px}
-.pillars .display-m{max-width:900px}
-.pillars .body-l{max-width:720px}
+/* ---------- 02 · Four ways in ---------- */
+.ways{--sec-bg:var(--stone);background:var(--stone);display:flex;flex-direction:column;gap:64px}
+.ways .display-m{max-width:900px}
+.ways .body-l{max-width:720px}
 .cards{display:flex;gap:24px}
 .card{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px;padding:40px 32px;background:var(--white);border-radius:var(--radius)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start}
+.card .icon{width:56px;height:56px}
 .card .spacer{height:8px}
-.card .icon{width:56px;height:56px;margin-bottom:4px}
+.pill{display:inline-flex;padding:5px 10px;border-radius:var(--radius-s);background:var(--stone);color:var(--text-2)}
+.pill.now{background:var(--crimson);color:var(--paper)}
 
-/* ---------- How we build ---------- */
-.how{--sec-bg:var(--ink);background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;gap:72px}
-.how .display-m{max-width:900px;color:var(--on-ink)}
-.how .header .body-l{max-width:720px;color:var(--sand)}
-.model{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
-.model .eyebrow{margin-bottom:16px}
-.step{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.14)}
-.step:first-of-type{border-top:1px solid rgba(255,255,255,.14)}
-.step .num{flex:0 0 40px;color:var(--crimson)}
-.step .txt{display:flex;flex-direction:column;gap:6px}
-.step .txt .body-s{max-width:480px;color:var(--sand)}
-.platform{flex:0 0 480px;display:flex;flex-direction:column;gap:24px}
-.chips{display:flex;flex-wrap:wrap;gap:12px}
-.chip{padding:10px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-s);font-weight:500;font-size:14px;line-height:20px;color:var(--on-ink)}
-.platform .body-m{color:var(--sand)}
-.quote{display:flex;flex-direction:column;gap:20px;padding-top:24px}
-.quote .rule{width:48px}
+/* ---------- 03 · For founders ---------- */
+.founders{--sec-bg:var(--ink);background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;gap:72px}
+.founders .display-m{max-width:900px;color:var(--on-ink)}
+.founders .header .body-l{max-width:760px;color:var(--sand)}
+.stays{flex:0 0 400px;display:flex;flex-direction:column}
+.stays .eyebrow,.adds>.eyebrow{margin-bottom:16px}
+.stays ul{list-style:none}
+.stays li{display:flex;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.stays li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--crimson);flex:none}
+.adds{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+.adds-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.add{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-top:1px solid rgba(255,255,255,.14)}
+.add .num{flex:0 0 28px;color:var(--crimson)}
+.add .txt{display:flex;flex-direction:column;gap:6px}
+.add .txt .body-s{max-width:300px;color:var(--sand)}
+.structures{display:flex;gap:24px}
+.structure{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px;padding:32px;background:#2E2A2B;border-radius:var(--radius)}
+.structure .body-s{color:var(--sand)}
 
-/* ---------- Deal highlight ---------- */
-.deal{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:48px}
-.deal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.deal-head .txt{display:flex;flex-direction:column;gap:20px;max-width:760px}
-.deal-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none}
-.deal-meta a{color:var(--crimson);font-weight:500;font-size:14px;line-height:20px}
-.deal-meta a:hover{color:var(--crimson-deep)}
-.deal-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;height:640px;padding:48px 56px 56px;border-radius:var(--radius);overflow:hidden;background:var(--ink) url("assets/vyrao-bg.jpg") center/cover no-repeat;color:var(--white)}
-.deal-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.deal-card .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(35,31,32,.82) 0%,rgba(35,31,32,.35) 50%,rgba(35,31,32,.10) 100%)}
-.deal-card>.top,.deal-card>.bottom{position:relative;z-index:2}
-.deal-card>.top{display:flex;justify-content:space-between;align-items:flex-start}
-.tag{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 12px;background:var(--paper);color:var(--ink);border-radius:var(--radius-s)}
-.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--crimson)}
+/* ---------- 04 · What we look for ---------- */
+.look{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:64px}
+.look .left{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
+.criteria{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+.crit{display:flex;gap:32px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--sand)}
+.crit:first-child{border-top:1px solid var(--sand)}
+.crit .num{flex:0 0 80px;color:var(--crimson)}
+.crit .txt{display:flex;flex-direction:column;gap:8px;padding-top:8px}
+.crit .txt .body-m{max-width:560px}
+.look .facts .body-m{color:var(--ink)}
+
+/* ---------- 05 · How we build ---------- */
+.build{--sec-bg:var(--white);background:var(--white);display:flex;flex-direction:column}
+.build .left{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
+.steps{list-style:none;flex:1 1 0;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.step{display:flex;flex-direction:column;gap:16px;padding:28px;background:var(--stone);border-radius:var(--radius)}
+.step .body-s{color:var(--text-2)}
+
+/* ---------- 06 · Roadmap ---------- */
+.roadmap{--sec-bg:var(--stone);background:var(--stone);display:flex;flex-direction:column;gap:64px}
+.roadmap .display-m{max-width:1200px}
+.phases{display:flex;gap:40px}
+.phase{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid var(--sand)}
+.phase.is-now{border-top:2px solid var(--crimson);padding-top:23px}
+.phase .meta{display:flex;align-items:center;gap:12px}
+.phase .pill.now{padding:4px 8px}
+.callout{display:flex;gap:80px;align-items:flex-start;padding:40px 48px;background:var(--white);border-radius:var(--radius)}
+.callout .heading-s{flex:0 0 400px}
+.callout .body-m{flex:1 1 0;max-width:560px}
+
+/* ---------- 07 · The house ---------- */
+.house{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:48px}
+.house .display-m{max-width:1000px}
+.house-cards{display:flex;gap:24px}
+.house-card{flex:1 1 0;min-width:0;position:relative;display:flex;flex-direction:column;justify-content:space-between;height:520px;padding:40px;border-radius:var(--radius);overflow:hidden}
+.house-card.vyrao{background:var(--ink) url("assets/vyrao-bg.jpg") center/cover no-repeat;color:var(--white)}
+.house-card .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(35,31,32,.82) 0%,rgba(35,31,32,.35) 50%,rgba(35,31,32,.10) 100%)}
+.house-card>.top,.house-card>.bottom{position:relative;z-index:2}
+.house-card>.top{display:flex;justify-content:space-between;align-items:center}
+.house-card>.bottom{display:flex;flex-direction:column;gap:20px}
+.house-card.vyrao .body-l{max-width:440px;color:var(--white)}
 .wordmark{width:180px;height:auto}
-.deal-card>.bottom{display:flex;flex-direction:column;gap:24px}
-.deal-card .display-l{max-width:760px;color:var(--white)}
-.deal-card .body-l{max-width:640px;color:var(--white)}
+.house-card.yours{background:var(--stone);border:1px dashed var(--sand)}
+.house-card.yours>.bottom{gap:24px;align-items:flex-start}
+.house-card.yours .body-m{max-width:440px}
 
 /* ---------- In the press (Figma: In the press) ---------- */
 .press{--sec-bg:var(--stone);background:var(--stone);display:flex;flex-direction:column;gap:64px}
@@ -185,21 +228,30 @@ main>section:not(.partner)::after{content:"";position:absolute;inset:0;backgroun
 .press-item .read{align-self:flex-start;padding-top:4px;color:var(--crimson)}
 .press-item .read:hover{color:var(--crimson-deep)}
 
-/* ---------- What we look for ---------- */
-.look{--sec-bg:var(--paper);background:var(--paper);display:flex;flex-direction:column;gap:64px}
-.look .left{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
-.criteria{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
-.crit{display:flex;gap:32px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--sand)}
-.crit:first-child{border-top:1px solid var(--sand)}
-.crit .num{flex:0 0 80px;color:var(--crimson)}
-.crit .txt{display:flex;flex-direction:column;gap:8px;padding-top:8px}
-.crit .txt .body-m{max-width:560px}
 
-/* ---------- Partner / form ---------- */
-.partner{background:var(--white);z-index:2}
-.partner .left{flex:0 0 480px;display:flex;flex-direction:column;gap:24px}
-.contact{display:flex;flex-direction:column;gap:8px;padding-top:16px}
-.contact a{text-decoration:underline;text-underline-offset:3px}
+/* ---------- 08 · Three forces ---------- */
+.forces{--sec-bg:var(--ink);background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;gap:72px}
+.forces .display-m{max-width:900px;color:var(--on-ink)}
+.forces .header .body-l{max-width:760px;color:var(--sand)}
+.force-cols{display:flex;gap:40px}
+.force{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:24px}
+.force .top{display:flex;flex-direction:column;gap:12px}
+.force .top .body-m{max-width:360px;color:var(--sand)}
+.force ul{list-style:none;display:flex;flex-direction:column}
+.force li{padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+.force li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.who{display:flex;gap:80px;align-items:flex-start;padding-top:56px;border-top:1px solid rgba(255,255,255,.14)}
+.who .left{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px}
+.who .left .body-l{max-width:640px}
+.who .right{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
+.who .right .body-m{color:var(--sand)}
+
+/* ---------- 09 · Contact ---------- */
+.contact{background:var(--white);z-index:2}
+.contact .left{flex:0 0 480px;display:flex;flex-direction:column;gap:24px}
+.contact-block{display:flex;flex-direction:column;gap:8px;padding-top:16px}
+.contact-block a{text-decoration:underline;text-underline-offset:3px}
+.contact-block a:hover{color:var(--crimson)}
 .form{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px;padding:48px;background:var(--stone);border-radius:var(--radius)}
 .row{display:flex;gap:20px}
 .field{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:8px}
@@ -218,31 +270,35 @@ textarea.control{height:140px;resize:vertical}
 .consent label a{text-decoration:underline;text-underline-offset:3px}
 .consent label a:hover{color:var(--crimson)}
 .submit{width:100%;padding:18px 28px}
+.form .caption.c-muted{margin-top:-4px}
 .submit[disabled]{opacity:.6;cursor:default}
 .form-note{display:none;padding:14px 16px;border-radius:var(--radius-s);font-size:15px;line-height:24px}
 .form-note.ok{display:block;background:var(--white);border:1px solid var(--sand);color:var(--ink)}
 .form-note.err{display:block;background:var(--white);border:1px solid var(--crimson);color:var(--crimson)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
+
 /* ---------- Footer ---------- */
 .footer{background:var(--ink);color:var(--on-ink);padding:64px var(--gutter) 48px;display:flex;flex-direction:column;gap:48px}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-start}
+.footer-brand{display:flex;flex-direction:column;gap:20px}
 .footer-cols{display:flex;gap:80px}
 .footer-col{display:flex;flex-direction:column;gap:12px}
 .footer-col a{color:var(--on-ink);transition:color .15s}
 .footer-col a:hover{color:var(--sand)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
-.legal{display:flex;gap:24px}
 
-/* ---------- Mobile (Figma: Mobile 390) ---------- */
+/* ---------- Mobile (Figma: Mobile 390 — v2) ---------- */
 @media (max-width:1100px){
   :root{--gutter:64px}
   .display-xl{font-size:72px;line-height:76px}
-  .thesis .left,.look .left,.partner .left,.platform{flex-basis:auto}
+  .shift .left,.look .left,.build .left,.contact .left,.stays,.who .right,.callout .heading-s{flex-basis:auto}
   .columns{flex-direction:column;gap:48px}
-  .thesis .right{padding-top:0}
+  .shift .right{padding-top:0}
   .cards{flex-wrap:wrap}
   .card{flex:1 1 calc(50% - 12px)}
+  .facts,.phases,.force-cols,.structures{flex-wrap:wrap}
+  .fact,.phase,.force,.structure{flex-basis:calc(50% - 20px)}
 }
 @media (max-width:720px){
   :root{--gutter:24px;--section-y:80px}
@@ -254,27 +310,65 @@ textarea.control{height:140px;resize:vertical}
   .display-m{font-size:32px;line-height:38px}
   .heading-s{font-size:24px;line-height:30px}
   .body-l{font-size:18px;line-height:28px}
-  .hero{align-items:flex-end;min-height:92vh;padding:150px var(--gutter) 112px}
+  .hero{align-items:flex-end;min-height:0;padding:150px var(--gutter) 64px}
   .hero-bg img{object-position:50% 100%;transform-origin:50% 100%}
   .hero-bg .fade{background:linear-gradient(to bottom,rgba(251,249,246,.97) 0%,rgba(251,249,246,.93) 52%,rgba(251,249,246,.45) 74%,rgba(251,249,246,0) 100%)}
   .hero-bg .fade-b{display:none}
-  .hero-buttons{flex-direction:column;align-items:stretch;width:100%}
+  .hero-text{gap:32px}
+  .hero-buttons{flex-direction:column;align-items:stretch;width:100%;gap:24px}
   .hero-buttons .btn{width:100%}
-  .hero-partner{right:auto;left:var(--gutter);bottom:32px}
-  .hero-partner span{display:none}
-  .rail{flex-direction:column;gap:12px}
-  .rail-item{flex-direction:row;align-items:center;gap:12px;padding-right:0}
+  .strip{padding:48px var(--gutter);gap:32}
+  .strip{gap:32px}
+  .forces-row{flex-direction:column;align-items:flex-start;gap:12px}
+  .forces-list{flex-wrap:wrap;gap:8px 12px}
+  .facts{flex-direction:column;gap:20px;padding-top:24px}
+  .fact{gap:8px;flex-basis:auto}
+  .shift{gap:64px}
+  .shift .columns{gap:32px}
+  .shift .left,.shift .right{gap:20px}
+  .rail{flex-direction:column}
+  .rail-item{flex-direction:row;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--sand)}
+  .rail-item:first-child{border-top:1px solid var(--sand)}
+  .rail-line{gap:0}
   .rail-seg{flex:0 0 24px}
+  .rail-label{flex:1 1 0;align-items:center;gap:12px}
+  .rail-label .caption:first-child{flex:0 0 20px}
+  .rail-label .txt{flex:1 1 0;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
+  .ways{gap:40px}
   .cards{flex-direction:column;gap:16px}
-  .card{flex-basis:auto}
+  .card{flex-basis:auto;padding:32px 28px}
+  .card .spacer{display:none}
+  .founders{gap:48px}
+  .founders .columns{gap:48px}
+  .stays .eyebrow,.adds>.eyebrow{margin-bottom:8px}
+  .stays li{padding:16px 0}
+  .adds-grid{grid-template-columns:1fr}
+  .add{padding:20px 0;border-top:0;border-bottom:1px solid rgba(255,255,255,.14);gap:16px}
+  .add .txt .body-s{max-width:none}
+  .structures{flex-direction:column;gap:16px}
+  .structure{flex-basis:auto;padding:24px;gap:10px}
+  .look{gap:48px}
+  .look .columns{gap:48px}
+  .crit{gap:20px;padding:24px 0}
   .crit .num{flex-basis:48px;font-size:24px;line-height:30px}
-  .deal{gap:32px}
-  .deal-head{flex-direction:column;align-items:flex-start;gap:20px}
-  .deal-meta{align-items:flex-start}
-  .deal-card{height:520px;padding:24px 24px 28px}
+  .crit .txt{gap:6px;padding-top:0}
+  .build .columns{gap:40px}
+  .steps{grid-template-columns:1fr;gap:12px}
+  .step{padding:20px 24px;gap:10px}
+  .roadmap{gap:40px}
+  .phases{flex-direction:column;gap:24px}
+  .phase{flex-basis:auto;padding-top:20px;gap:12px}
+  .phase.is-now{padding-top:19px}
+  .callout{flex-direction:column;gap:12px;padding:28px}
+  .callout .heading-s,.callout .body-m{max-width:none}
+  .house{gap:32px}
+  .house-cards{flex-direction:column;gap:16px}
+  .house-card{flex-basis:auto;height:auto;padding:28px 24px}
+  .house-card.vyrao{height:460px;padding:24px 24px 28px}
+  .house-card>.bottom{gap:16px}
   .wordmark{width:110px}
-  .deal-card .display-l{font-size:36px;line-height:42px}
-  .deal-card .body-l{font-size:17px;line-height:26px}
+  .house-card.yours>.bottom{gap:16px;margin-top:24px}
+  .house-card.yours .btn{width:100%;margin-top:8px}
   .press{gap:40px}
   .press-head{flex-direction:column;align-items:flex-start;gap:20px}
   .press-item{flex-direction:column;gap:12px;padding:28px 0}
@@ -282,15 +376,25 @@ textarea.control{height:140px;resize:vertical}
   .press-item .txt{gap:12px}
   .press-item .meta{justify-content:space-between;padding-top:8px}
   .press-item .read{padding-top:0}
-  .press-item .read{padding-top:0}
+  .forces{gap:48px}
+  .force-cols{flex-direction:column;gap:40px}
+  .force{flex-basis:auto;gap:20px}
+  .force .top{gap:10px}
+  .force .top .body-m{max-width:none}
+  .force li{padding:12px 0}
+  .who{flex-direction:column;gap:32px;padding-top:40px}
+  .who .left,.who .right{gap:16px}
+  .contact .columns{gap:40px}
+  .contact .left{gap:20px}
+  .contact-block{padding-top:8px}
   .form{padding:24px}
-  .control{font-size:16px} /* ≥16px stops iOS Safari auto-zooming the page when a field is focused */
   .row{flex-direction:column;gap:20px}
-  .footer{padding:56px var(--gutter) 40px}
+  .control{font-size:16px} /* ≥16px stops iOS Safari auto-zooming the page when a field is focused */
+  .footer{padding:56px var(--gutter) 40px;gap:40px}
   .footer-top{flex-direction:column;gap:40px}
+  .footer-brand{gap:16px}
   .footer-cols{gap:48px}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}
-  .legal{flex-direction:column;gap:8px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -301,12 +405,12 @@ textarea.control{height:140px;resize:vertical}
   <a href="#top" aria-label="Tresalis home"><img class="logo" src="assets/tresalis-logo-primary.svg" alt="Tresalis" width="144" height="30"></a>
   <nav class="nav-links eyebrow" aria-label="Sections">
     <a href="#thesis">Thesis</a>
-    <a href="#pillars">Pillars</a>
-    <a href="#how">How we build</a>
-    <a href="#press">Press</a>
+    <a href="#founders">For founders</a>
     <a href="#look">What we look for</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#forces">Three forces</a>
   </nav>
-  <a class="btn btn-primary" href="#partner">Partner with us</a>
+  <a class="btn btn-primary" href="#contact">Talk to us</a>
 </header>
 
 <main id="top">
@@ -321,135 +425,215 @@ textarea.control{height:140px;resize:vertical}
     <span class="fade-b"></span>
   </div>
   <div class="hero-text">
-    <p class="eyebrow">A European house of brands for healthy longevity</p>
-    <h1 class="display-xl">Look better.<br>Feel better.<br>Live healthier,<br>for longer.</h1>
-    <p class="body-l lede">Tresalis acquires and builds exceptional consumer brands at the convergence of beauty, wellbeing and health — united by one long-term consumer ambition.</p>
+    <p class="eyebrow">A house of brands for healthy longevity</p>
+    <h1 class="display-xl">Look better.<br>Feel better.<br>Live healthier for longer.</h1>
+    <p class="body-l lede">Tresalis acquires and grows distinctive consumer brands where beauty, wellbeing and health meet. Each brand keeps its name, its voice and its community. We add the science, scale and operating strength that independent brands rarely build on their own.</p>
     <div class="hero-buttons">
-      <a class="btn btn-primary" href="#partner">Partner with Tresalis</a>
+      <a class="btn btn-primary" href="#contact">Start a confidential conversation</a>
       <a class="btn btn-secondary" href="#thesis">Read our thesis</a>
     </div>
   </div>
-  <a class="hero-partner" href="#deal" aria-label="Deal highlight: Vyrao">
-    <img src="assets/vyrao-wordmark.svg" alt="Vyrao" width="76" height="22">
-    <span>Deal highlight · Functional fragrance</span>
-  </a>
 </section>
 
-<section class="section thesis" id="thesis">
+<section class="strip" aria-label="Tresalis at a glance">
+  <div class="forces-row">
+    <ul class="forces-list eyebrow" role="list">
+      <li>Science</li><i aria-hidden="true"></i><li>Brand</li><i aria-hidden="true"></i><li>Operational excellence</li>
+    </ul>
+    <p class="body-s c-muted">Tres: three forces. Salis: from the Latin sal, the essential.</p>
+  </div>
+  <dl class="facts">
+    <div class="fact"><dt class="eyebrow c-muted">Where</dt><dd class="heading-xs">Built from Europe. The United States first.</dd></div>
+    <div class="fact"><dt class="eyebrow c-muted">What</dt><dd class="heading-xs">Skincare, haircare, fragrance and wellbeing</dd></div>
+    <div class="fact"><dt class="eyebrow c-muted">Who</dt><dd class="heading-xs">Founder-led brands, $10 to 75 million in revenue</dd></div>
+    <div class="fact"><dt class="eyebrow c-muted">How</dt><dd class="heading-xs">Distinct brands on one shared platform</dd></div>
+  </dl>
+</section>
+
+<section class="section shift" id="thesis">
   <div class="columns">
     <div class="left">
-      <p class="eyebrow c-crimson">Our thesis</p>
-      <h2 class="display-l">Beauty, wellbeing and health are converging.</h2>
+      <p class="eyebrow c-crimson">01 · The consumer shift</p>
+      <h2 class="display-m">People no longer separate how they look, feel and age.</h2>
     </div>
     <div class="right">
-      <p class="body-l c-sec">Consumers no longer separate how they look, how they feel and how they age. Skin and scalp health, sleep, stress, nutrition, fragrance and supplements increasingly serve one and the same ambition: to live well, feel well and look well — for longer.</p>
-      <p class="body-m c-sec">Tresalis is built for that shift. We are a consumer health and wellbeing group — not a beauty roll-up, and not a biotech. Our opportunity is the consumerisation of longevity: evidence-led products people trust, use daily and are willing to pay more for.</p>
+      <p class="body-l">Skin, hair and scalp health, sleep, stress, nutrition, mood and supplements increasingly serve one and the same ambition: to live well for longer.</p>
+      <p class="body-m c-sec">That ambition, not the product format, is what connects every brand we own. It gives us a broader and more coherent universe than a beauty roll-up, while our buying today stays tightly focused.</p>
     </div>
   </div>
   <div class="convergence" aria-label="The consumer shift">
     <p class="eyebrow c-muted">The consumer shift</p>
     <ol class="rail" role="list">
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><span class="heading-xs">Beauty</span></li>
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><span class="heading-xs">Wellbeing</span></li>
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><span class="heading-xs">Prevention</span></li>
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><span class="heading-xs">Healthy aging</span></li>
-      <li class="rail-item is-last"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><span class="heading-xs">Longevity</span></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">i</span><div class="txt"><span class="heading-xs">Beauty</span><span class="caption c-muted">Looking better</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">ii</span><div class="txt"><span class="heading-xs">Wellbeing</span><span class="caption c-muted">Feeling better</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">iii</span><div class="txt"><span class="heading-xs">Prevention</span><span class="caption c-muted">Staying well</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">iv</span><div class="txt"><span class="heading-xs">Healthy ageing</span><span class="caption c-muted">Ageing well</span></div></div></li>
+      <li class="rail-item is-last"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">v</span><div class="txt"><span class="heading-xs">Longevity</span><span class="caption c-muted">For longer</span></div></div></li>
     </ol>
   </div>
 </section>
 
-<section class="section pillars" id="pillars">
+<section class="section ways" id="pillars">
   <div class="header">
-    <p class="eyebrow c-crimson">Four ways to serve one ambition</p>
+    <p class="eyebrow c-crimson">02 · One ambition, four ways in</p>
     <h2 class="display-m">Look well. Feel well. Live well. Age well.</h2>
-    <p class="body-l c-sec">The common denominator across our brands is not the product format. It is the consumer’s ambition to improve their quality of life over a longer period.</p>
+    <p class="body-l c-sec">Every Tresalis brand answers at least one of these. We start where consumers already spend and trust, and widen from there.</p>
   </div>
   <div class="cards">
     <article class="card">
-      <img class="icon" src="assets/icons/look-well.svg" alt="" width="56" height="56" aria-hidden="true">
+      <div class="top"><img class="icon" src="assets/icons/look-well.svg" alt="" width="56" height="56" aria-hidden="true"><span class="pill now eyebrow">Today</span></div>
+      <p class="eyebrow c-muted">01</p>
       <h3 class="heading-s">Look well</h3>
-      <p class="body-s c-sec">Beauty evolves from looking younger to skin, hair and scalp health.</p>
+      <p class="body-s c-sec">Beauty moves from looking younger to skin, hair and scalp that are genuinely healthy.</p>
       <span class="spacer"></span>
       <p class="caption c-muted">Skincare · Haircare · Scalp health · Beauty devices</p>
     </article>
     <article class="card">
-      <img class="icon" src="assets/icons/feel-well.svg" alt="" width="56" height="56" aria-hidden="true">
+      <div class="top"><img class="icon" src="assets/icons/feel-well.svg" alt="" width="56" height="56" aria-hidden="true"><span class="pill now eyebrow">Today</span></div>
+      <p class="eyebrow c-muted">02</p>
       <h3 class="heading-s">Feel well</h3>
-      <p class="body-s c-sec">Fragrance moves beyond smelling good to mood, emotion and daily ritual.</p>
+      <p class="body-s c-sec">Fragrance moves beyond smelling good, towards mood, emotion and the rituals of the day.</p>
       <span class="spacer"></span>
-      <p class="caption c-muted">Fragrance · Aromatherapy · Sleep · Stress · Emotional wellbeing</p>
+      <p class="caption c-muted">Fragrance · Aromatherapy · Sleep and stress · Emotional wellbeing</p>
     </article>
     <article class="card">
-      <img class="icon" src="assets/icons/live-well.svg" alt="" width="56" height="56" aria-hidden="true">
+      <div class="top"><img class="icon" src="assets/icons/live-well.svg" alt="" width="56" height="56" aria-hidden="true"><span class="pill eyebrow">Next</span></div>
+      <p class="eyebrow c-muted">03</p>
       <h3 class="heading-s">Live well</h3>
-      <p class="body-s c-sec">From beauty and wellbeing into health from within, and prevention.</p>
+      <p class="body-s c-sec">Health from within: the products people take every day to stay well.</p>
       <span class="spacer"></span>
-      <p class="caption c-muted">Supplements · Nutrition · Gut health · Women’s health · Metabolic health</p>
+      <p class="caption c-muted">Supplements and nutrition · Gut health · Women’s health · Metabolic health</p>
     </article>
     <article class="card">
-      <img class="icon" src="assets/icons/age-well.svg" alt="" width="56" height="56" aria-hidden="true">
+      <div class="top"><img class="icon" src="assets/icons/age-well.svg" alt="" width="56" height="56" aria-hidden="true"><span class="pill eyebrow">Next</span></div>
+      <p class="eyebrow c-muted">04</p>
       <h3 class="heading-s">Age well</h3>
-      <p class="body-s c-sec">Permission to grow into the consumer-facing longevity ecosystem.</p>
+      <p class="body-s c-sec">Evidence-based products that help people stay healthy for longer.</p>
       <span class="spacer"></span>
-      <p class="caption c-muted">Healthy-aging products · Diagnostics · Preventative consumer health</p>
+      <p class="caption c-muted">Healthy-ageing products · At-home diagnostics · Preventative consumer health</p>
     </article>
   </div>
 </section>
 
-<section class="section how" id="how">
+<section class="section founders" id="founders">
   <div class="header">
-    <p class="eyebrow c-crimson">How we build</p>
-    <h2 class="display-m">Entrepreneurial brands. Shared capabilities.</h2>
-    <p class="body-l">Each brand keeps its identity and authenticity. Tresalis provides the capabilities most independent consumer brands cannot build on their own — and reinvests the gains into the next brand.</p>
+    <p class="eyebrow c-crimson">03 · For founders</p>
+    <h2 class="display-m">Your brand stays yours. The platform behind it gets much bigger.</h2>
+    <p class="body-l">Brands between $10 and 100 million tend to hit the same ceiling. Formulation, clinical proof, sourcing, manufacturing and international distribution all become expensive at once. We build them once and share them across every brand we own.</p>
   </div>
   <div class="columns">
-    <div class="model">
-      <p class="eyebrow c-muted">The model</p>
-      <div class="step"><span class="eyebrow num">01</span><div class="txt"><h3 class="heading-xs">Acquire</h3><p class="body-s">Exceptional brands with real consumer credibility.</p></div></div>
-      <div class="step"><span class="eyebrow num">02</span><div class="txt"><h3 class="heading-xs">Professionalise</h3><p class="body-s">Operations, finance, compliance and governance.</p></div></div>
-      <div class="step"><span class="eyebrow num">03</span><div class="txt"><h3 class="heading-xs">Accelerate</h3><p class="body-s">International distribution across Europe and beyond.</p></div></div>
-      <div class="step"><span class="eyebrow num">04</span><div class="txt"><h3 class="heading-xs">Improve</h3><p class="body-s">Formulations, efficacy and clinical substantiation.</p></div></div>
-      <div class="step"><span class="eyebrow num">05</span><div class="txt"><h3 class="heading-xs">Leverage</h3><p class="body-s">Shared manufacturing and sourcing to reduce cost of goods.</p></div></div>
-      <div class="step"><span class="eyebrow num">06</span><div class="txt"><h3 class="heading-xs">Extend</h3><p class="body-s">Adjacent products and categories — then acquire again.</p></div></div>
+    <div class="stays">
+      <p class="eyebrow c-muted">What stays with the brand</p>
+      <ul role="list">
+        <li class="body-m">Name, identity and voice</li>
+        <li class="body-m">The founder’s story</li>
+        <li class="body-m">Its community and customers</li>
+        <li class="body-m">Creative direction</li>
+        <li class="body-m">The people who know the customer</li>
+      </ul>
     </div>
-    <div class="platform">
-      <p class="eyebrow c-muted">The shared platform</p>
-      <div class="chips">
-        <span class="chip">R&amp;D</span><span class="chip">Formulation</span><span class="chip">Clinical substantiation</span><span class="chip">Ingredient sourcing</span><span class="chip">Manufacturing</span><span class="chip">International distribution</span><span class="chip">Digital &amp; e-commerce</span><span class="chip">Consumer data</span>
-      </div>
-      <p class="body-m">This shared infrastructure is designed to become one of the group’s most durable advantages — built once, compounding across every brand.</p>
-      <div class="quote">
-        <span class="rule"></span>
-        <p class="heading-xs">Consumer longevity, not biotech. We benefit from the scientific and consumer momentum around longevity without taking binary drug-development risk.</p>
+    <div class="adds">
+      <p class="eyebrow c-muted">What Tresalis adds</p>
+      <div class="adds-grid">
+        <div class="add"><span class="label num">01</span><div class="txt"><h3 class="heading-xs">R&amp;D and formulation</h3><p class="body-s">Better products, faster reformulation, new launches.</p></div></div>
+        <div class="add"><span class="label num">02</span><div class="txt"><h3 class="heading-xs">Clinical substantiation</h3><p class="body-s">Claims that hold up with consumers, retailers and regulators.</p></div></div>
+        <div class="add"><span class="label num">03</span><div class="txt"><h3 class="heading-xs">Ingredient sourcing</h3><p class="body-s">Group purchasing power on the inputs that matter.</p></div></div>
+        <div class="add"><span class="label num">04</span><div class="txt"><h3 class="heading-xs">Shared manufacturing</h3><p class="body-s">Quality, capacity and lower cost of goods.</p></div></div>
+        <div class="add"><span class="label num">05</span><div class="txt"><h3 class="heading-xs">International distribution</h3><p class="body-s">The US first, then Latin America, Europe, the Gulf and India.</p></div></div>
+        <div class="add"><span class="label num">06</span><div class="txt"><h3 class="heading-xs">Digital and consumer data</h3><p class="body-s">Performance marketing and insight shared across brands.</p></div></div>
+        <div class="add"><span class="label num">07</span><div class="txt"><h3 class="heading-xs">Sister brands</h3><p class="body-s">Shelf space, retailers and talent opened by the other brands.</p></div></div>
+        <div class="add"><span class="label num">08</span><div class="txt"><h3 class="heading-xs">Finance, people and systems</h3><p class="body-s">The back office a growing brand needs, already running.</p></div></div>
       </div>
     </div>
+  </div>
+  <div class="structures">
+    <div class="structure"><h3 class="heading-xs">Full acquisition</h3><p class="body-s">For founders ready to hand over, with a transition that protects what they built.</p></div>
+    <div class="structure"><h3 class="heading-xs">Majority, founder alongside</h3><p class="body-s">For founders who want liquidity now and a real share in what comes next.</p></div>
+    <div class="structure"><h3 class="heading-xs">Carve-outs</h3><p class="body-s">For groups with a strong brand that no longer fits their portfolio.</p></div>
   </div>
 </section>
 
-<section class="section deal" id="deal">
-  <div class="deal-head">
-    <div class="txt">
-      <p class="eyebrow c-crimson">Deal highlight</p>
-      <h2 class="display-m">Vyrao</h2>
+<section class="section look" id="look">
+  <div class="columns">
+    <div class="left">
+      <p class="eyebrow c-crimson">04 · What we look for</p>
+      <h2 class="display-m">Five questions we ask of every brand.</h2>
+      <p class="body-m c-sec">If the answer to most of them is yes, we should talk, whatever the size of the last round or the state of the market.</p>
     </div>
-    <div class="deal-meta">
-      <p class="eyebrow c-muted">Feel well · Functional fragrance</p>
-      <a href="https://vyrao.com" target="_blank" rel="noopener">vyrao.com →</a>
-    </div>
+    <ol class="criteria" role="list">
+      <li class="crit"><span class="display-m num">01</span><div class="txt"><h3 class="heading-s">Trust</h3><p class="body-m c-sec">Do consumers genuinely believe in the brand?</p></div></li>
+      <li class="crit"><span class="display-m num">02</span><div class="txt"><h3 class="heading-s">Efficacy</h3><p class="body-m c-sec">Does the product demonstrably work?</p></div></li>
+      <li class="crit"><span class="display-m num">03</span><div class="txt"><h3 class="heading-s">Habit</h3><p class="body-m c-sec">Is it part of a routine people come back to?</p></div></li>
+      <li class="crit"><span class="display-m num">04</span><div class="txt"><h3 class="heading-s">Premium</h3><p class="body-m c-sec">Will people pay more for a better outcome?</p></div></li>
+      <li class="crit"><span class="display-m num">05</span><div class="txt"><h3 class="heading-s">Leverage</h3><p class="body-m c-sec">Can Tresalis materially accelerate it?</p></div></li>
+    </ol>
   </div>
-  <article class="deal-card">
-    <!-- To use the looping video instead of the still, uncomment and add assets/vyrao-loop.mp4:
-    <video autoplay muted loop playsinline poster="assets/vyrao-bg.jpg"><source src="assets/vyrao-loop.mp4" type="video/mp4"></video> -->
-    <span class="scrim" aria-hidden="true"></span>
-    <div class="top">
-      <span class="tag eyebrow">Deal highlight</span>
-      <img class="wordmark" src="assets/vyrao-wordmark.svg" alt="Vyrao" width="180" height="52">
+  <dl class="facts">
+    <div class="fact"><dt class="eyebrow c-muted">Size</dt><dd class="body-m">$10 to 75 million in net revenue, profitable or close to it</dd></div>
+    <div class="fact"><dt class="eyebrow c-muted">Categories today</dt><dd class="body-m">Clinical skincare, haircare and scalp, sun and body care, fragrance</dd></div>
+    <div class="fact"><dt class="eyebrow c-muted">Origin</dt><dd class="body-m">Founded anywhere, with a case for growing in the United States</dd></div>
+    <div class="fact"><dt class="eyebrow c-muted">Moments</dt><dd class="body-m">Succession, growth that needs capital and infrastructure, or a carve-out</dd></div>
+  </dl>
+</section>
+
+<section class="section build" id="how">
+  <div class="columns">
+    <div class="left">
+      <p class="eyebrow c-crimson">05 · How we build</p>
+      <h2 class="display-m">Acquire. Professionalise. Accelerate. Then do it again.</h2>
+      <p class="body-m c-sec">Each brand makes the platform stronger, and a stronger platform makes the next brand grow faster. That shared infrastructure is our advantage.</p>
     </div>
-    <div class="bottom">
-      <h3 class="display-l">Clean functional fragrance, formulated on neuroscience.</h3>
-      <p class="body-l">A functional fragrance house developing neuroscience-backed eau de parfum with IFF master perfumers.</p>
-    </div>
-  </article>
+    <ol class="steps" role="list">
+      <li class="step"><span class="eyebrow c-muted">Step 1</span><h3 class="heading-xs">Acquire a brand consumers already trust</h3></li>
+      <li class="step"><span class="eyebrow c-muted">Step 2</span><h3 class="heading-xs">Professionalise the business around it</h3></li>
+      <li class="step"><span class="eyebrow c-muted">Step 3</span><h3 class="heading-xs">Accelerate international distribution</h3></li>
+      <li class="step"><span class="eyebrow c-muted">Step 4</span><h3 class="heading-xs">Improve products and formulations</h3></li>
+      <li class="step"><span class="eyebrow c-muted">Step 5</span><h3 class="heading-xs">Share manufacturing and lower costs</h3></li>
+      <li class="step"><span class="eyebrow c-crimson">Step 6</span><h3 class="heading-xs">Launch adjacent products, then add the next brand</h3></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section roadmap" id="roadmap">
+  <div class="header">
+    <p class="eyebrow c-crimson">06 · Roadmap</p>
+    <h2 class="display-m">From products towards outcomes, one phase at a time.</h2>
+  </div>
+  <div class="phases">
+    <div class="phase is-now"><div class="meta"><span class="eyebrow c-crimson">Phase 1</span><span class="pill now eyebrow">Now</span></div><h3 class="heading-s">Beauty and wellbeing</h3><p class="body-s c-sec">Skincare, haircare and fragrance.</p></div>
+    <div class="phase"><div class="meta"><span class="eyebrow c-muted">Phase 2</span></div><h3 class="heading-s">Beauty from within</h3><p class="body-s c-sec">Supplements, nutricosmetics, collagen, women’s health, sleep and stress.</p></div>
+    <div class="phase"><div class="meta"><span class="eyebrow c-muted">Phase 3</span></div><h3 class="heading-s">Consumer health</h3><p class="body-s c-sec">At-home diagnostics, metabolic health, healthy-ageing products and devices.</p></div>
+    <div class="phase"><div class="meta"><span class="eyebrow c-muted">Phase 4</span></div><h3 class="heading-s">Longevity ecosystem</h3><p class="body-s c-sec">Selective diagnostics, personal recommendations, and data and services that connect the brands.</p></div>
+  </div>
+  <div class="callout">
+    <h3 class="heading-s">Consumer longevity, not biotech.</h3>
+    <p class="body-m c-sec">No clinics, no experimental therapeutics, no drug-development risk. We build on the science and the consumer momentum behind longevity, and stay what we are: a consumer brand business.</p>
+  </div>
+</section>
+
+<section class="section house" id="house">
+  <div class="header">
+    <p class="eyebrow c-crimson">07 · The house</p>
+    <h2 class="display-m">The first brand has joined. The next could be yours.</h2>
+  </div>
+  <div class="house-cards">
+    <article class="house-card vyrao">
+      <span class="scrim" aria-hidden="true"></span>
+      <div class="top"><span class="eyebrow c-paper">Feel well</span><span class="eyebrow c-sand">London · 2026</span></div>
+      <div class="bottom">
+        <a href="https://vyrao.com" target="_blank" rel="noopener" aria-label="Vyrao"><img class="wordmark" src="assets/vyrao-wordmark.svg" alt="Vyrao" width="180" height="52"></a>
+        <p class="body-l">Fine fragrance created for wellbeing, founded by Yasmin Sewell.</p>
+      </div>
+    </article>
+    <article class="house-card yours">
+      <div class="top"><span class="eyebrow c-muted">Look well · Feel well</span></div>
+      <div class="bottom">
+        <h3 class="display-m">Your brand</h3>
+        <p class="body-m c-sec">We are adding brands in clinical skincare, hair and scalp, and sun and body care.</p>
+        <a class="btn btn-primary" href="#contact">Start a conversation</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section class="section press" id="press">
@@ -458,7 +642,7 @@ textarea.control{height:140px;resize:vertical}
       <p class="eyebrow c-crimson">In the press</p>
       <h2 class="display-m">Coverage of Tresalis and our brands.</h2>
     </div>
-    <a class="label" href="mailto:deals@tresalis.com?subject=Press%20enquiry">Press enquiries →</a>
+    <a class="label" href="mailto:founders@tresalis.com?subject=Press%20enquiry">Press enquiries →</a>
   </div>
   <ul class="press-list" role="list">
     <li class="press-item">
@@ -482,33 +666,49 @@ textarea.control{height:140px;resize:vertical}
   </ul>
 </section>
 
-<section class="section look" id="look">
-  <div class="columns">
-    <div class="left">
-      <p class="eyebrow c-crimson">What we look for</p>
-      <h2 class="display-m">Five questions we ask of every brand.</h2>
-      <p class="body-m c-sec">We are drawn to distinctive, founder-led brands in skincare, haircare, fragrance, wellbeing and consumer health that already have loyal customers — and would grow faster with the platform behind them.</p>
+
+<section class="section forces" id="forces">
+  <div class="header">
+    <p class="eyebrow c-crimson">08 · Three forces</p>
+    <h2 class="display-m">Three forces behind every brand we build.</h2>
+    <p class="body-l">Great consumer brands endure when three things come together. Most independent brands have one or two of them. Tresalis brings all three, for every brand in the house.</p>
+  </div>
+  <div class="force-cols">
+    <div class="force">
+      <div class="top"><p class="eyebrow c-crimson">Force one</p><h3 class="heading-s">Science</h3><p class="body-m">Products that demonstrably work, and claims that hold up with consumers, retailers and regulators.</p></div>
+      <ul role="list"><li class="body-s">Formulation and R&amp;D</li><li class="body-s">Clinical substantiation</li><li class="body-s">Ingredient sourcing</li><li class="body-s">Dermatology and nutrition expertise</li></ul>
     </div>
-    <ol class="criteria" role="list">
-      <li class="crit"><span class="display-m num">01</span><div class="txt"><h3 class="heading-s">Trust</h3><p class="body-m c-sec">Does the brand have genuine consumer credibility?</p></div></li>
-      <li class="crit"><span class="display-m num">02</span><div class="txt"><h3 class="heading-s">Efficacy</h3><p class="body-m c-sec">Does the product demonstrably work?</p></div></li>
-      <li class="crit"><span class="display-m num">03</span><div class="txt"><h3 class="heading-s">Habit</h3><p class="body-m c-sec">Can it become part of a recurring consumer routine?</p></div></li>
-      <li class="crit"><span class="display-m num">04</span><div class="txt"><h3 class="heading-s">Premiumisation</h3><p class="body-m c-sec">Will consumers pay more for superior outcomes?</p></div></li>
-      <li class="crit"><span class="display-m num">05</span><div class="txt"><h3 class="heading-s">Platform leverage</h3><p class="body-m c-sec">Can Tresalis materially accelerate the business through manufacturing, R&amp;D, distribution, digital capabilities and our other brands?</p></div></li>
-    </ol>
+    <div class="force">
+      <div class="top"><p class="eyebrow c-crimson">Force two</p><h3 class="heading-s">Brand</h3><p class="body-m">Identity, voice and community that consumers trust, grown with care rather than folded into a portfolio.</p></div>
+      <ul role="list"><li class="body-s">Brand and creative direction</li><li class="body-s">Digital and performance marketing</li><li class="body-s">Consumer data and insight</li><li class="body-s">New products and adjacencies</li></ul>
+    </div>
+    <div class="force">
+      <div class="top"><p class="eyebrow c-crimson">Force three</p><h3 class="heading-s">Operational excellence</h3><p class="body-m">The infrastructure that lets a brand grow across borders without losing quality or margin.</p></div>
+      <ul role="list"><li class="body-s">Shared manufacturing</li><li class="body-s">International distribution</li><li class="body-s">Supply chain and cost of goods</li><li class="body-s">Finance, people and systems</li></ul>
+    </div>
+  </div>
+  <div class="who">
+    <div class="left">
+      <p class="eyebrow c-muted">Who we are</p>
+      <p class="body-l">Tresalis is led by founders and operators who have built brands, run international operations and structured capital across Europe and the United States. We invest our own time and money alongside long-term investors, and we know what it means to hand over something you built.</p>
+    </div>
+    <div class="right">
+      <p class="eyebrow c-muted">Tres · salis</p>
+      <p class="body-m">Tres, three: the three forces every brand needs to endure, science, brand and operational excellence. Salis, from the Latin sal: salt, long valued as something essential and life-giving.</p>
+    </div>
   </div>
 </section>
 
-<section class="section partner" id="partner">
+<section class="section contact" id="contact">
   <div class="columns">
     <div class="left">
-      <p class="eyebrow c-crimson">Partner with Tresalis</p>
-      <h2 class="display-m">Building something exceptional? Let’s talk.</h2>
-      <p class="body-m c-sec">We partner with founders and owners who want their brand to reach more people, in more markets, with better products — while keeping what made it special. Tell us about your brand and we will come back to you personally.</p>
-      <div class="contact">
-        <p class="eyebrow c-muted">Prefer email?</p>
-        <a class="heading-xs" href="mailto:deals@tresalis.com">deals@tresalis.com</a>
-        <p class="caption c-muted">All submissions are treated in strict confidence.</p>
+      <p class="eyebrow c-crimson">09 · Contact</p>
+      <h2 class="display-m">Thinking about the next chapter for your brand?</h2>
+      <p class="body-m c-sec">Every conversation is confidential. Tell us a little about your brand and a founding partner will come back to you personally.</p>
+      <div class="contact-block">
+        <p class="eyebrow c-muted">Write to us</p>
+        <a class="body-m" href="mailto:founders@tresalis.com">founders@tresalis.com</a>
+        <p class="body-m c-sec">Munich · Miami</p>
       </div>
     </div>
 
@@ -520,44 +720,31 @@ textarea.control{height:140px;resize:vertical}
 
       <div class="row">
         <div class="field"><label for="f-name">Your name</label><input class="control" id="f-name" name="name" type="text" placeholder="Full name" autocomplete="name" required></div>
-        <div class="field"><label for="f-role">Role</label><input class="control" id="f-role" name="role" type="text" placeholder="Founder, CEO, advisor…" autocomplete="organization-title"></div>
+        <div class="field"><label for="f-email">Email</label><input class="control" id="f-email" name="email" type="email" placeholder="name@brand.com" autocomplete="email" required></div>
       </div>
       <div class="row">
-        <div class="field"><label for="f-email">Work email</label><input class="control" id="f-email" name="email" type="email" placeholder="name@brand.com" autocomplete="email" required></div>
+        <div class="field"><label for="f-brand">Brand</label><input class="control" id="f-brand" name="brand" type="text" placeholder="Brand name" autocomplete="organization" required></div>
+        <div class="field"><label for="f-web">Website</label><input class="control" id="f-web" name="website" type="text" inputmode="url" placeholder="https://" autocomplete="url"></div>
       </div>
       <div class="row">
-        <div class="field"><label for="f-brand">Brand name</label><input class="control" id="f-brand" name="brand" type="text" placeholder="Brand" autocomplete="organization" required></div>
-        <div class="field"><label for="f-web">Website</label><input class="control" id="f-web" name="website" type="text" inputmode="url" placeholder="yourbrand.com" autocomplete="url"></div>
-      </div>
-      <div class="row">
+        <div class="field"><label for="f-rev">Annual net revenue</label>
+          <select class="control is-placeholder" id="f-rev" name="annual_revenue_eur">
+            <option value="" selected disabled>Select</option>
+            <option>Under $10M</option><option>$10M to $25M</option><option>$25M to $75M</option><option>Over $75M</option>
+          </select></div>
         <div class="field"><label for="f-cat">Category</label>
-          <select class="control is-placeholder" id="f-cat" name="category" required>
-            <option value="" selected disabled>Select a pillar</option>
-            <option>Look well — skincare, haircare, scalp, devices</option>
-            <option>Feel well — fragrance, sleep, stress, emotional wellbeing</option>
-            <option>Live well — supplements, nutrition, gut, women’s, metabolic</option>
-            <option>Age well — healthy-aging, diagnostics, preventative health</option>
-            <option>Other / more than one</option>
-          </select></div>
-        <div class="field"><label for="f-country">HQ country</label>
-          <select class="control is-placeholder" id="f-country" name="hq_country" required>
-            <option value="" selected disabled>Select country</option>
-            <option>Austria</option><option>Belgium</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Ireland</option><option>Italy</option><option>Netherlands</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>United Kingdom</option><option>Other Europe</option><option>United States</option><option>Other</option>
+          <select class="control is-placeholder" id="f-cat" name="category">
+            <option value="" selected disabled>Select</option>
+            <option>Skincare</option><option>Haircare and scalp</option><option>Sun and body care</option><option>Fragrance</option><option>Wellbeing and supplements</option><option>Other</option>
           </select></div>
       </div>
-      <div class="row">
-        <div class="field"><label for="f-rev">Annual revenue (€)</label>
-          <select class="control is-placeholder" id="f-rev" name="annual_revenue_eur" required>
-            <option value="" selected disabled>Select a range</option>
-            <option>Under €2m</option><option>€2m – €5m</option><option>€5m – €10m</option><option>€10m – €25m</option><option>€25m – €50m</option><option>€50m – €100m</option><option>Over €100m</option>
-          </select></div>
-      </div>
-      <div class="field"><label for="f-msg">Tell us about the brand</label><textarea class="control" id="f-msg" name="message" placeholder="What makes it distinctive, who buys it, and why now?" required></textarea></div>
+      <div class="field"><label for="f-msg">What should we know?</label><textarea class="control" id="f-msg" name="message" placeholder="What makes it distinctive, who buys it, and where it sells today." required></textarea></div>
       <div class="consent">
         <input type="checkbox" id="f-consent" name="consent" value="yes" required>
-        <label class="caption" for="f-consent">I agree that Tresalis may store and process this information to evaluate a potential partnership, in line with its <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a>.</label>
+        <label class="caption" for="f-consent">I agree that Tresalis may use these details to reply to me, as described in the <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a>.</label>
       </div>
-      <button class="btn btn-primary submit" type="submit">Submit your brand</button>
+      <p class="caption c-muted">Read only by the founding partners.</p>
+      <button class="btn btn-primary submit" type="submit">Send confidentially</button>
       <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -565,30 +752,31 @@ textarea.control{height:140px;resize:vertical}
 
 <footer class="footer">
   <div class="footer-top">
-    <img class="logo" src="assets/tresalis-logo-reversed.svg" alt="Tresalis" width="144" height="30">
+    <div class="footer-brand">
+      <img class="logo" src="assets/tresalis-logo-reversed.svg" alt="Tresalis" width="144" height="30">
+      <p class="body-s c-sand">Look better. Feel better. Live healthier for longer.</p>
+    </div>
     <div class="footer-cols">
       <div class="footer-col">
         <p class="eyebrow c-muted">Explore</p>
         <a class="body-s" href="#thesis">Thesis</a>
-        <a class="body-s" href="#pillars">Pillars</a>
-        <a class="body-s" href="#how">How we build</a>
-        <a class="body-s" href="#press">In the press</a>
+        <a class="body-s" href="#founders">For founders</a>
         <a class="body-s" href="#look">What we look for</a>
-        <a class="body-s" href="#partner">Partner with us</a>
+        <a class="body-s" href="#roadmap">Roadmap</a>
+        <a class="body-s" href="#forces">Three forces</a>
+        <a class="body-s" href="#contact">Contact</a>
       </div>
       <div class="footer-col">
-        <p class="eyebrow c-muted">Contact</p>
-        <a class="body-s" href="mailto:deals@tresalis.com">deals@tresalis.com</a>
-        <p class="body-s c-sand">Europe</p>
+        <p class="eyebrow c-muted">Company</p>
+        <a class="body-s" href="legal.html">Legal notice</a>
+        <a class="body-s" href="privacy.html">Privacy</a>
+        <a class="body-s" href="https://www.linkedin.com/company/tresalis" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="caption c-muted">© <span id="year">2026</span> Tresalis. All rights reserved.</p>
-    <div class="legal">
-      <a class="caption c-sand" href="privacy.html">Privacy notice</a>
-      <p class="caption c-muted">Tresalis is a consumer brand group, not a medical provider.</p>
-    </div>
+    <p class="caption c-muted">© <span id="year">2026</span> Tresalis Inc.</p>
+    <p class="caption c-sand">Munich · Miami</p>
   </div>
 </footer>
 </main>
@@ -633,7 +821,7 @@ textarea.control{height:140px;resize:vertical}
 /* Page stack: as the next section covers this one, scale it down slightly and dim it. */
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var items=Array.prototype.slice.call(document.querySelectorAll('main>section:not(.partner)'));
+  var items=Array.prototype.slice.call(document.querySelectorAll('main>section:not(.contact)'));
   var ticking=false;
   function layout(){ var vh=window.innerHeight; for(var i=0;i<items.length;i++){ var h=items[i].offsetHeight; items[i].style.top = (h>vh ? (vh-h) : 0)+'px'; } }
   function update(){
@@ -676,12 +864,12 @@ textarea.control{height:140px;resize:vertical}
         note.textContent='Thank you — your submission has reached us. We will come back to you personally.'; note.className='form-note ok';
         btn.textContent='Submitted';
       } else if(/activation/i.test(String(data.message||''))){
-        note.textContent='Almost there — the form is being activated on our side. Please email us directly at deals@tresalis.com for now.'; note.className='form-note err';
-        btn.disabled=false; btn.textContent='Submit your brand';
+        note.textContent='Almost there — the form is being activated on our side. Please email us directly at founders@tresalis.com for now.'; note.className='form-note err';
+        btn.disabled=false; btn.textContent='Send confidentially';
       } else { throw new Error(data.message||'Submission failed'); }
     }catch(err){
-      note.textContent='Something went wrong sending the form. Please email us directly at deals@tresalis.com.'; note.className='form-note err';
-      btn.disabled=false; btn.textContent='Submit your brand';
+      note.textContent='Something went wrong sending the form. Please email us directly at founders@tresalis.com.'; note.className='form-note err';
+      btn.disabled=false; btn.textContent='Send confidentially';
     }
   });
 })();
