@@ -104,6 +104,8 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 
 /* ---------- Intro strip (Figma v2: Intro strip — three forces graphic) ---------- */
 .strip{--sec-bg:var(--white);background:var(--white);padding:0 var(--gutter) 64px;display:flex;flex-direction:column;align-items:center;gap:48px}
+/* Hold after the facts: the section pins with this space below the facts, so the next section covers empty white before it reaches the text. */
+.facts-hold{width:100%;height:48vh}
 .forces-panel{width:100%;padding:64px 0;background:var(--stone);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;gap:48px}
 .forces-stage{position:relative;width:1000px;height:720px}
 .forces-art{position:absolute;inset:0;perspective:1400px}
@@ -129,7 +131,7 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 .forces-panel{transform-origin:50% 0}
 .forces-scroll{position:relative;width:100%}
 .forces-runway{height:1200px;width:100%;pointer-events:none}
-@media (prefers-reduced-motion:reduce){.band,.fcall{opacity:1!important;transform:none!important}.leaders line{stroke-dashoffset:0!important}.leaders circle{transform:scale(1)!important}.forces-runway{display:none}.forces-pin{position:static;height:auto;padding-top:0}}
+@media (prefers-reduced-motion:reduce){.band,.fcall{opacity:1!important;transform:none!important}.leaders line{stroke-dashoffset:0!important}.leaders circle{transform:scale(1)!important}.forces-runway,.facts-hold{display:none}.forces-pin{position:static;height:auto;padding-top:0}}
 .facts dd{margin:0}
 .facts{width:100%;display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--sand)}
 .fact{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
@@ -341,6 +343,7 @@ textarea.control{height:140px;resize:vertical}
   .hero-buttons{flex-direction:column;align-items:stretch;width:100%;gap:24px}
   .hero-buttons .btn{width:100%}
   .strip{padding:0 var(--gutter) 48px;gap:32px}
+  .facts-hold{height:36vh}
   .forces-pin{padding-top:88px}
   .forces-runway{height:900px}
   .forces-panel{padding:32px 24px 28px;gap:24px}
@@ -501,6 +504,7 @@ textarea.control{height:140px;resize:vertical}
     <div class="fact"><dt class="eyebrow c-muted">Who</dt><dd class="heading-xs">Founder-led brands, $10 to 75 million in revenue</dd></div>
     <div class="fact"><dt class="eyebrow c-muted">How</dt><dd class="heading-xs">Distinct brands on one shared platform</dd></div>
   </dl>
+  <div class="facts-hold" aria-hidden="true"></div>
 </section>
 
 <section class="section shift" id="thesis">
