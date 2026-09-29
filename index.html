@@ -113,6 +113,7 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 .band-science{transform-origin:36.66% 57.27%;transform:rotate3d(.5,-.866,0,-100deg)}
 .band-brand{transform-origin:63.34% 57.27%;transform:rotate3d(.5,.866,0,100deg)}
 .band-ops{transform-origin:50% 83.94%;transform:rotate3d(1,0,0,-100deg)}
+.band-label{font-family:var(--jost);font-weight:500;font-size:11.9px;letter-spacing:.12em;text-transform:uppercase;text-anchor:middle;dominant-baseline:central}
 .leaders{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .leaders line{stroke:var(--sand);stroke-width:1;stroke-linecap:butt;stroke-dasharray:56;stroke-dashoffset:56}
 .leaders circle{fill:var(--crimson);transform-box:fill-box;transform-origin:center;transform:scale(0)}
@@ -351,6 +352,7 @@ textarea.control{height:140px;resize:vertical}
   .forces-art{position:relative;inset:auto;width:294px;height:254.6px;perspective:900px}
   .band{left:0;top:0;width:294px;height:254.6px}
   .leaders{display:none}
+  .band-label{font-size:17px}
   .forces-callouts{position:static;width:100%;display:flex;flex-direction:column;gap:20px;padding-top:8px}
   .fcall{position:relative;left:auto;top:auto;width:100%;gap:6px;align-items:flex-start;text-align:left;padding-left:20px}
   .fcall::before{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:50%;background:var(--crimson)}
@@ -479,9 +481,9 @@ textarea.control{height:140px;resize:vertical}
     <h2 class="forces-title"><strong>Tres:</strong> three forces.<br class="m-br"> <strong>Salis:</strong> from the Latin sal, the essential.</h2>
     <div class="forces-stage">
       <div class="forces-art">
-      <svg class="band band-science" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M351.0 579.3 Q346.7 581.8 349.2 577.4 L593.6 154.1 Q596.1 149.8 596.1 154.8 L596.1 290.7 Q596.1 295.7 593.6 300.0 L475.6 504.5 Q473.1 508.8 468.7 511.3 Z" fill="#231F20"/></svg>
-      <svg class="band band-brand" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M603.9 154.8 Q603.9 149.8 606.4 154.1 L850.8 577.4 Q853.3 581.8 849.0 579.3 L731.3 511.3 Q726.9 508.8 724.4 504.5 L606.4 300.0 Q603.9 295.7 603.9 290.7 Z" fill="#CA353D"/></svg>
-      <svg class="band band-ops" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M845.1 586.0 Q849.4 588.5 844.4 588.5 L355.6 588.5 Q350.6 588.5 354.9 586.0 L472.6 518.0 Q477.0 515.5 482.0 515.5 L718.0 515.5 Q723.0 515.5 727.4 518.0 Z" fill="#DAD3C8"/></svg>
+      <svg class="band band-science" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M351.0 579.3 Q346.7 581.8 349.2 577.4 L593.6 154.1 Q596.1 149.8 596.1 154.8 L596.1 290.7 Q596.1 295.7 593.6 300.0 L475.6 504.5 Q473.1 508.8 468.7 511.3 Z" fill="#231F20"/><text class="band-label" x="503" y="384" transform="rotate(-60 503 384)" fill="#FBF9F6">Science</text></svg>
+      <svg class="band band-brand" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M603.9 154.8 Q603.9 149.8 606.4 154.1 L850.8 577.4 Q853.3 581.8 849.0 579.3 L731.3 511.3 Q726.9 508.8 724.4 504.5 L606.4 300.0 Q603.9 295.7 603.9 290.7 Z" fill="#CA353D"/><text class="band-label" x="697" y="384" transform="rotate(60 697 384)" fill="#FBF9F6">Brand</text></svg>
+      <svg class="band band-ops" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M845.1 586.0 Q849.4 588.5 844.4 588.5 L355.6 588.5 Q350.6 588.5 354.9 586.0 L472.6 518.0 Q477.0 515.5 482.0 515.5 L718.0 515.5 Q723.0 515.5 727.4 518.0 Z" fill="#DAD3C8"/><text class="band-label" x="600" y="552" fill="#231F20">Operations</text></svg>
       <svg class="leaders" viewBox="0 0 1000 720" aria-hidden="true">
         <line class="leader-science" x1="358" y1="235" x2="309.5" y2="207"/><circle class="leader-science" cx="358" cy="235" r="4"/>
         <line class="leader-brand" x1="642" y1="235" x2="690.5" y2="207"/><circle class="leader-brand" cx="642" cy="235" r="4"/>
