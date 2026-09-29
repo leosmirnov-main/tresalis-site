@@ -103,7 +103,7 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 
 
 /* ---------- Intro strip (Figma v2: Intro strip — three forces graphic) ---------- */
-.strip{--sec-bg:var(--white);background:var(--white);padding:64px var(--gutter);display:flex;flex-direction:column;align-items:center;gap:48px}
+.strip{--sec-bg:var(--white);background:var(--white);padding:0 var(--gutter) 64px;display:flex;flex-direction:column;align-items:center;gap:48px}
 .forces-panel{width:100%;padding:64px 0;background:var(--stone);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;gap:48px}
 .forces-stage{position:relative;width:1000px;height:720px}
 .forces-art{position:absolute;inset:0;perspective:1400px}
@@ -124,15 +124,12 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 .forces-title strong{font-weight:500}
 .m-br{display:none}
 .m-only{display:none}
-/* unfold sequence: band → leader → text, one force at a time */
-.is-in .band{transition:transform .75s cubic-bezier(.22,.9,.3,1),opacity .4s ease-out;transform:none;opacity:1}
-.is-in .band-brand{transition-delay:1s}.is-in .band-ops{transition-delay:2s}
-.is-in .leaders line{transition:stroke-dashoffset .35s ease-out;stroke-dashoffset:0}
-.is-in .leaders circle{transition:transform .3s cubic-bezier(.34,1.4,.64,1);transform:scale(1)}
-.is-in .leaders .leader-science{transition-delay:.55s}.is-in .leaders .leader-brand{transition-delay:1.55s}.is-in .leaders .leader-ops{transition-delay:2.55s}
-.is-in .fcall{transition:opacity .4s ease-out,transform .4s ease-out;opacity:1;transform:none}
-.is-in .fcall-science{transition-delay:.75s}.is-in .fcall-brand{transition-delay:1.75s}.is-in .fcall-ops{transition-delay:2.75s}
-@media (prefers-reduced-motion:reduce){.band,.fcall{opacity:1;transform:none;transition:none}.leaders line{stroke-dashoffset:0}.leaders circle{transform:scale(1)}}
+/* scroll-driven unfold: the strip pins for one viewport plus a runway; scrolling through the runway plays band → leader → text for each force in turn */
+.forces-pin{position:sticky;top:0;width:100%;height:100vh;display:flex;justify-content:center;align-items:flex-start;padding-top:120px}
+.forces-panel{transform-origin:50% 0}
+.forces-scroll{position:relative;width:100%}
+.forces-runway{height:1200px;width:100%;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.band,.fcall{opacity:1!important;transform:none!important}.leaders line{stroke-dashoffset:0!important}.leaders circle{transform:scale(1)!important}.forces-runway{display:none}.forces-pin{position:static;height:auto;padding-top:0}}
 .facts dd{margin:0}
 .facts{width:100%;display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--sand)}
 .fact{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
@@ -343,7 +340,9 @@ textarea.control{height:140px;resize:vertical}
   .hero-text{gap:32px}
   .hero-buttons{flex-direction:column;align-items:stretch;width:100%;gap:24px}
   .hero-buttons .btn{width:100%}
-  .strip{padding:48px var(--gutter);gap:32px}
+  .strip{padding:0 var(--gutter) 48px;gap:32px}
+  .forces-pin{padding-top:88px}
+  .forces-runway{height:900px}
   .forces-panel{padding:32px 24px 28px;gap:24px}
   .forces-stage{width:100%;height:auto;display:flex;flex-direction:column;align-items:center;gap:24px}
   .forces-art{position:relative;inset:auto;width:294px;height:254.6px;perspective:900px}
@@ -471,6 +470,8 @@ textarea.control{height:140px;resize:vertical}
 </section>
 
 <section class="strip" aria-label="Tresalis at a glance">
+  <div class="forces-scroll">
+  <div class="forces-pin">
   <div class="forces-panel" id="forces-panel" aria-label="Three forces: Science, Brand, Operations">
     <h2 class="forces-title"><strong>Tres:</strong> three forces.<br class="m-br"> <strong>Salis:</strong> from the Latin sal, the essential.</h2>
     <div class="forces-stage">
@@ -490,6 +491,9 @@ textarea.control{height:140px;resize:vertical}
         <div class="fcall fcall-ops"><p class="eyebrow">Force three<span class="m-only"> · Operations</span></p><h3 class="heading-xs">Operations</h3><p class="body-s c-sec">The infrastructure that lets a brand grow across borders without losing quality or margin.</p></div>
       </div>
     </div>
+  </div>
+  </div>
+  <div class="forces-runway" aria-hidden="true"></div>
   </div>
   <dl class="facts">
     <div class="fact"><dt class="eyebrow c-muted">Where</dt><dd class="heading-xs">Built from Europe. The United States first.</dd></div>
@@ -858,12 +862,26 @@ textarea.control{height:140px;resize:vertical}
   if(location.hash.length>1){ setTimeout(function(){ go(location.hash.slice(1), false); }, 50); }
 })();
 
-/* Three forces graphic: unfold once it scrolls into view. */
+/* Three forces graphic: scroll-driven. Progress through the runway drives band → leader → text for each force. */
 (function(){
-  var p=document.getElementById('forces-panel'); if(!p) return;
-  if(!('IntersectionObserver' in window)){ p.classList.add('is-in'); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ p.classList.add('is-in'); io.disconnect(); } }); },{threshold:0.35});
-  io.observe(p);
+  var sec=document.querySelector('.forces-scroll'), pin=sec&&sec.querySelector('.forces-pin'), panel=document.getElementById('forces-panel'), run=sec&&sec.querySelector('.forces-runway'); if(!sec||!panel) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var bands=['science','brand','ops'].map(function(k){ return {band:panel.querySelector('.band-'+k), line:panel.querySelector('line.leader-'+k), dot:panel.querySelector('circle.leader-'+k), call:panel.querySelector('.fcall-'+k)}; });
+  var axes=[[.5,-.866,-100],[.5,.866,100],[1,0,-100]];
+  var ticking=false;
+  function clamp(v,a,b){ return v<a?a:v>b?b:v; }
+  function ease(t){ return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function fit(){ var vh=window.innerHeight, top=parseFloat(getComputedStyle(pin).paddingTop)||0; var avail=vh-top-40; var s=Math.min(1, avail/panel.offsetHeight); panel.style.transform=s<1?'scale('+s+')':''; }
+  function update(){
+    ticking=false; var r=sec.getBoundingClientRect(); var RUN=run.offsetHeight; var p=clamp(-r.top/RUN,0,1);
+    for(var k=0;k<3;k++){ var t=clamp(p*3-k,0,1), tb=ease(clamp(t/.6,0,1)), tl=clamp((t-.5)/.3,0,1), tt=clamp((t-.7)/.3,0,1), a=axes[k], o=bands[k];
+      o.band.style.transform='rotate3d('+a[0]+','+a[1]+',0,'+(a[2]*(1-tb))+'deg)'; o.band.style.opacity=String(Math.min(1,tb*2));
+      o.line.style.strokeDashoffset=String(56*(1-tl)); o.dot.style.transform='scale('+tl+')';
+      o.call.style.opacity=String(tt); o.call.style.transform='translateY('+(8*(1-tt))+'px)'; }
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',function(){ fit(); onScroll(); }); fit(); update();
+  window.addEventListener('load',function(){ fit(); update(); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ fit(); update(); });
 })();
 
 /* Nav: transparent over the hero, paper once the next section reaches it. */
