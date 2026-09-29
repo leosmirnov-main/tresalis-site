@@ -18,7 +18,7 @@
 <meta name="theme-color" content="#FBF9F6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 /* ---------- Tokens (Figma: Tresalis / Colour) ---------- */
 :root{
@@ -102,13 +102,37 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 @media (prefers-reduced-motion:reduce){.hero-bg img{animation:none;transform:scale(1.03)}}
 
 
-/* ---------- Intro strip (Figma v2: Intro strip) ---------- */
-.strip{--sec-bg:var(--white);background:var(--white);padding:64px var(--gutter);display:flex;flex-direction:column;gap:48px}
-.forces-row{display:flex;justify-content:space-between;align-items:center;gap:40px}
-.forces-list{list-style:none;display:flex;align-items:center;gap:24px}
-.forces-list i{width:6px;height:6px;border-radius:50%;background:var(--crimson);flex:none}
+/* ---------- Intro strip (Figma v2: Intro strip — three forces graphic) ---------- */
+.strip{--sec-bg:var(--white);background:var(--white);padding:64px var(--gutter);display:flex;flex-direction:column;align-items:center;gap:48px}
+.forces-panel{width:100%;padding:64px 0;background:var(--stone);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;gap:48px}
+.forces-stage{position:relative;width:1000px;height:720px}
+.forces-art{position:absolute;inset:0;perspective:1400px}
+.band{position:absolute;left:222.85px;top:0;width:554.3px;height:480px;overflow:visible;backface-visibility:hidden;opacity:0}
+.band-science{transform-origin:36.66% 57.27%;transform:rotate3d(.5,-.866,0,-100deg)}
+.band-brand{transform-origin:63.34% 57.27%;transform:rotate3d(.5,.866,0,100deg)}
+.band-ops{transform-origin:50% 83.94%;transform:rotate3d(1,0,0,-100deg)}
+.leaders{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.leaders line{stroke:var(--sand);stroke-width:1;stroke-linecap:butt;stroke-dasharray:56;stroke-dashoffset:56}
+.leaders circle{fill:var(--crimson);transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.forces-callouts{position:absolute;inset:0}
+.fcall{position:absolute;width:260px;display:flex;flex-direction:column;gap:8px;opacity:0;transform:translateY(8px)}
+.fcall .eyebrow{color:var(--crimson)}
+.fcall-science{left:33px;top:141px;align-items:flex-end;text-align:right}
+.fcall-brand{left:707px;top:141px;align-items:flex-start;text-align:left}
+.fcall-ops{left:370px;top:554px;align-items:center;text-align:center}
+.forces-title{font-style:italic;font-weight:300;text-align:center;width:100%;padding:0 24px}
+.m-only{display:none}
+/* unfold sequence: band → leader → text, one force at a time */
+.is-in .band{transition:transform 1s cubic-bezier(.22,.9,.3,1),opacity .5s ease-out;transform:none;opacity:1}
+.is-in .band-brand{transition-delay:1.5s}.is-in .band-ops{transition-delay:3s}
+.is-in .leaders line{transition:stroke-dashoffset .45s ease-out;stroke-dashoffset:0}
+.is-in .leaders circle{transition:transform .35s cubic-bezier(.34,1.4,.64,1);transform:scale(1)}
+.is-in .leaders .leader-science{transition-delay:.85s}.is-in .leaders .leader-brand{transition-delay:2.35s}.is-in .leaders .leader-ops{transition-delay:3.85s}
+.is-in .fcall{transition:opacity .55s ease-out,transform .55s ease-out;opacity:1;transform:none}
+.is-in .fcall-science{transition-delay:1.15s}.is-in .fcall-brand{transition-delay:2.65s}.is-in .fcall-ops{transition-delay:4.15s}
+@media (prefers-reduced-motion:reduce){.band,.fcall{opacity:1;transform:none;transition:none}.leaders line{stroke-dashoffset:0}.leaders circle{transform:scale(1)}}
 .facts dd{margin:0}
-.facts{display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--sand)}
+.facts{width:100%;display:flex;gap:40px;padding-top:32px;border-top:1px solid var(--sand)}
 .fact{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
 
 /* ---------- 01 · The consumer shift ---------- */
@@ -317,10 +341,19 @@ textarea.control{height:140px;resize:vertical}
   .hero-text{gap:32px}
   .hero-buttons{flex-direction:column;align-items:stretch;width:100%;gap:24px}
   .hero-buttons .btn{width:100%}
-  .strip{padding:48px var(--gutter);gap:32}
-  .strip{gap:32px}
-  .forces-row{flex-direction:column;align-items:flex-start;gap:12px}
-  .forces-list{flex-wrap:wrap;gap:8px 12px}
+  .strip{padding:48px var(--gutter);gap:32px}
+  .forces-panel{padding:32px 24px 28px;gap:24px}
+  .forces-stage{width:100%;height:auto;display:flex;flex-direction:column;align-items:center;gap:24px}
+  .forces-art{position:relative;inset:auto;width:294px;height:254.6px;perspective:900px}
+  .band{left:0;top:0;width:294px;height:254.6px}
+  .leaders{display:none}
+  .forces-callouts{position:static;width:100%;display:flex;flex-direction:column;gap:20px;padding-top:8px}
+  .fcall{position:relative;left:auto;top:auto;width:100%;gap:6px;align-items:flex-start;text-align:left;padding-left:20px}
+  .fcall::before{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:50%;background:var(--crimson)}
+  .fcall .heading-xs{display:none}
+  .fcall .eyebrow{color:var(--ink)}
+  .forces-title{font-size:28px;line-height:36px;width:100%}
+  .m-only{display:inline}
   .facts{flex-direction:column;gap:20px;padding-top:24px}
   .fact{gap:8px;flex-basis:auto}
   .shift{gap:64px}
@@ -436,11 +469,25 @@ textarea.control{height:140px;resize:vertical}
 </section>
 
 <section class="strip" aria-label="Tresalis at a glance">
-  <div class="forces-row">
-    <ul class="forces-list eyebrow" role="list">
-      <li>Science</li><i aria-hidden="true"></i><li>Brand</li><i aria-hidden="true"></i><li>Operational excellence</li>
-    </ul>
-    <p class="body-s c-muted">Tres: three forces. Salis: from the Latin sal, the essential.</p>
+  <div class="forces-panel" id="forces-panel" aria-label="Three forces: Science, Brand, Operations">
+    <h2 class="display-m forces-title">Tres: three forces. Salis: from the Latin sal, the essential.</h2>
+    <div class="forces-stage">
+      <div class="forces-art">
+      <svg class="band band-science" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M351.0 579.3 Q346.7 581.8 349.2 577.4 L593.6 154.1 Q596.1 149.8 596.1 154.8 L596.1 290.7 Q596.1 295.7 593.6 300.0 L475.6 504.5 Q473.1 508.8 468.7 511.3 Z" fill="#231F20"/></svg>
+      <svg class="band band-brand" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M603.9 154.8 Q603.9 149.8 606.4 154.1 L850.8 577.4 Q853.3 581.8 849.0 579.3 L731.3 511.3 Q726.9 508.8 724.4 504.5 L606.4 300.0 Q603.9 295.7 603.9 290.7 Z" fill="#CA353D"/></svg>
+      <svg class="band band-ops" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M845.1 586.0 Q849.4 588.5 844.4 588.5 L355.6 588.5 Q350.6 588.5 354.9 586.0 L472.6 518.0 Q477.0 515.5 482.0 515.5 L718.0 515.5 Q723.0 515.5 727.4 518.0 Z" fill="#DAD3C8"/></svg>
+      <svg class="leaders" viewBox="0 0 1000 720" aria-hidden="true">
+        <line class="leader-science" x1="358" y1="235" x2="309.5" y2="207"/><circle class="leader-science" cx="358" cy="235" r="4"/>
+        <line class="leader-brand" x1="642" y1="235" x2="690.5" y2="207"/><circle class="leader-brand" cx="642" cy="235" r="4"/>
+        <line class="leader-ops" x1="500" y1="482" x2="500" y2="538"/><circle class="leader-ops" cx="500" cy="482" r="4"/>
+      </svg>
+      </div>
+      <div class="forces-callouts">
+        <div class="fcall fcall-science"><p class="eyebrow">Force one<span class="m-only"> · Science</span></p><h3 class="heading-xs">Science</h3><p class="body-s c-sec">Products that demonstrably work, and claims that hold up with consumers, retailers and regulators.</p></div>
+        <div class="fcall fcall-brand"><p class="eyebrow">Force two<span class="m-only"> · Brand</span></p><h3 class="heading-xs">Brand</h3><p class="body-s c-sec">Identity, voice and community that consumers trust, grown with care rather than folded into a portfolio.</p></div>
+        <div class="fcall fcall-ops"><p class="eyebrow">Force three<span class="m-only"> · Operations</span></p><h3 class="heading-xs">Operations</h3><p class="body-s c-sec">The infrastructure that lets a brand grow across borders without losing quality or margin.</p></div>
+      </div>
+    </div>
   </div>
   <dl class="facts">
     <div class="fact"><dt class="eyebrow c-muted">Where</dt><dd class="heading-xs">Built from Europe. The United States first.</dd></div>
@@ -683,7 +730,7 @@ textarea.control{height:140px;resize:vertical}
       <ul role="list"><li class="body-s">Brand and creative direction</li><li class="body-s">Digital and performance marketing</li><li class="body-s">Consumer data and insight</li><li class="body-s">New products and adjacencies</li></ul>
     </div>
     <div class="force">
-      <div class="top"><p class="eyebrow c-crimson">Force three</p><h3 class="heading-s">Operational excellence</h3><p class="body-m">The infrastructure that lets a brand grow across borders without losing quality or margin.</p></div>
+      <div class="top"><p class="eyebrow c-crimson">Force three</p><h3 class="heading-s">Operations</h3><p class="body-m">The infrastructure that lets a brand grow across borders without losing quality or margin.</p></div>
       <ul role="list"><li class="body-s">Shared manufacturing</li><li class="body-s">International distribution</li><li class="body-s">Supply chain and cost of goods</li><li class="body-s">Finance, people and systems</li></ul>
     </div>
   </div>
@@ -694,7 +741,7 @@ textarea.control{height:140px;resize:vertical}
     </div>
     <div class="right">
       <p class="eyebrow c-muted">Tres · salis</p>
-      <p class="body-m">Tres, three: the three forces every brand needs to endure, science, brand and operational excellence. Salis, from the Latin sal: salt, long valued as something essential and life-giving.</p>
+      <p class="body-m">Tres, three: the three forces every brand needs to endure, science, brand and operations. Salis, from the Latin sal: salt, long valued as something essential and life-giving.</p>
     </div>
   </div>
 </section>
@@ -807,6 +854,14 @@ textarea.control{height:140px;resize:vertical}
     if(go(id, !window.matchMedia('(prefers-reduced-motion: reduce)').matches)){ e.preventDefault(); history.replaceState(null,'','#'+id); }
   });
   if(location.hash.length>1){ setTimeout(function(){ go(location.hash.slice(1), false); }, 50); }
+})();
+
+/* Three forces graphic: unfold once it scrolls into view. */
+(function(){
+  var p=document.getElementById('forces-panel'); if(!p) return;
+  if(!('IntersectionObserver' in window)){ p.classList.add('is-in'); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ p.classList.add('is-in'); io.disconnect(); } }); },{threshold:0.35});
+  io.observe(p);
 })();
 
 /* Nav: transparent over the hero, paper once the next section reaches it. */
