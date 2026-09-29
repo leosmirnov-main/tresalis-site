@@ -103,7 +103,16 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 
 
 /* ---------- Intro strip (Figma v2: Intro strip — three forces graphic) ---------- */
-.strip{--sec-bg:var(--white);background:var(--white);padding:0 var(--gutter) 64px;display:flex;flex-direction:column;align-items:center;gap:48px}
+.strip{--sec-bg:var(--white);background:var(--white);padding:var(--section-y) var(--gutter) 64px;display:flex;flex-direction:column;align-items:center;gap:72px}
+.strip .header{width:100%;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.strip .header .display-m{max-width:900px}
+.strip .header .body-l{max-width:760px}
+.caps{width:100%;display:flex;gap:40px}
+.cap{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:16px}
+.cap .top{display:flex;align-items:center;gap:12px}
+.cap .dot{width:8px;height:8px;border-radius:50%;background:var(--crimson);flex:0 0 8px}
+.cap ul{list-style:none;display:flex;flex-direction:column}
+.cap li{padding:14px 0;border-top:1px solid var(--sand)}
 /* Hold after the facts: the section pins with this space below the facts, so the next section covers empty white before it reaches the text. */
 .facts-hold{width:100%;height:48vh}
 .forces-panel{width:100%;padding:64px 0;background:var(--stone);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;gap:48px}
@@ -256,23 +265,8 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 
 
 /* ---------- 08 · Three forces ---------- */
-.forces{--sec-bg:var(--ink);background:var(--ink);color:var(--on-ink);display:flex;flex-direction:column;gap:72px}
-.forces .display-m{max-width:900px;color:var(--on-ink)}
-.forces .header .body-l{max-width:760px;color:var(--sand)}
-.force-cols{display:flex;gap:40px}
-.force{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:24px}
-.force .top{display:flex;flex-direction:column;gap:12px}
-.force .top .body-m{max-width:360px;color:var(--sand)}
-.force ul{list-style:none;display:flex;flex-direction:column}
-.force li{padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
-.force li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
-.who{display:flex;gap:80px;align-items:flex-start;padding-top:56px;border-top:1px solid rgba(255,255,255,.14)}
-.who .left{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px}
-.who .left .body-l{max-width:640px}
-.who .right{flex:0 0 440px;display:flex;flex-direction:column;gap:20px}
-.who .right .body-m{color:var(--sand)}
 
-/* ---------- 09 · Contact ---------- */
+/* ---------- 08 · Contact ---------- */
 .contact{background:var(--white);z-index:2}
 .contact .left{flex:0 0 480px;display:flex;flex-direction:column;gap:24px}
 .contact-block{display:flex;flex-direction:column;gap:8px;padding-top:16px}
@@ -318,13 +312,13 @@ textarea.control{height:140px;resize:vertical}
 @media (max-width:1100px){
   :root{--gutter:64px}
   .display-xl{font-size:72px;line-height:76px}
-  .shift .left,.look .left,.build .left,.contact .left,.stays,.who .right,.callout .heading-s{flex-basis:auto}
+  .shift .left,.look .left,.build .left,.contact .left,.stays,.callout .heading-s{flex-basis:auto}
   .columns{flex-direction:column;gap:48px}
   .shift .right{padding-top:0}
   .cards{flex-wrap:wrap}
   .card{flex:1 1 calc(50% - 12px)}
-  .facts,.phases,.force-cols,.structures{flex-wrap:wrap}
-  .fact,.phase,.force,.structure{flex-basis:calc(50% - 20px)}
+  .facts,.phases,.structures{flex-wrap:wrap}
+  .fact,.phase,.structure{flex-basis:calc(50% - 20px)}
 }
 @media (max-width:720px){
   :root{--gutter:24px;--section-y:80px}
@@ -343,7 +337,8 @@ textarea.control{height:140px;resize:vertical}
   .hero-text{gap:32px}
   .hero-buttons{flex-direction:column;align-items:stretch;width:100%;gap:24px}
   .hero-buttons .btn{width:100%}
-  .strip{padding:0 var(--gutter) 48px;gap:32px}
+  .strip{padding:var(--section-y) var(--gutter) 48px;gap:48px}
+  .caps{flex-direction:column;gap:32px}
   .facts-hold{height:36vh}
   .forces-pin{padding-top:88px}
   .forces-runway{height:900px}
@@ -415,14 +410,6 @@ textarea.control{height:140px;resize:vertical}
   .press-item .txt{gap:12px}
   .press-item .meta{justify-content:space-between;padding-top:8px}
   .press-item .read{padding-top:0}
-  .forces{gap:48px}
-  .force-cols{flex-direction:column;gap:40px}
-  .force{flex-basis:auto;gap:20px}
-  .force .top{gap:10px}
-  .force .top .body-m{max-width:none}
-  .force li{padding:12px 0}
-  .who{flex-direction:column;gap:32px;padding-top:40px}
-  .who .left,.who .right{gap:16px}
   .contact .columns{gap:40px}
   .contact .left{gap:20px}
   .contact-block{padding-top:8px}
@@ -443,11 +430,11 @@ textarea.control{height:140px;resize:vertical}
 <header class="nav">
   <a href="#top" aria-label="Tresalis home"><img class="logo" src="assets/tresalis-logo-primary.svg" alt="Tresalis" width="144" height="30"></a>
   <nav class="nav-links eyebrow" aria-label="Sections">
+    <a href="#forces">Tres · salis</a>
     <a href="#thesis">Thesis</a>
     <a href="#founders">For founders</a>
     <a href="#look">What we look for</a>
     <a href="#roadmap">Roadmap</a>
-    <a href="#forces">Three forces</a>
   </nav>
   <a class="btn btn-primary" href="#contact">Talk to us</a>
 </header>
@@ -474,7 +461,12 @@ textarea.control{height:140px;resize:vertical}
   </div>
 </section>
 
-<section class="strip" aria-label="Tresalis at a glance">
+<section class="strip" id="forces" aria-label="Three forces">
+  <div class="header">
+    <p class="eyebrow c-crimson">Three forces</p>
+    <h2 class="display-m">Three forces behind every brand we build.</h2>
+    <p class="body-l c-sec">Great consumer brands endure when three things come together. Most independent brands have one or two of them. Tresalis brings all three, for every brand in the house.</p>
+  </div>
   <div class="forces-scroll">
   <div class="forces-pin">
   <div class="forces-panel" id="forces-panel" aria-label="Three forces: Science, Brand, Operations">
@@ -499,6 +491,11 @@ textarea.control{height:140px;resize:vertical}
   </div>
   </div>
   <div class="forces-runway" aria-hidden="true"></div>
+  </div>
+  <div class="caps">
+    <div class="cap"><div class="top"><span class="dot"></span><h3 class="heading-xs">Science</h3></div><ul role="list"><li class="body-s">Formulation and R&amp;D</li><li class="body-s">Clinical substantiation</li><li class="body-s">Ingredient sourcing</li><li class="body-s">Dermatology and nutrition expertise</li></ul></div>
+    <div class="cap"><div class="top"><span class="dot"></span><h3 class="heading-xs">Brand</h3></div><ul role="list"><li class="body-s">Brand and creative direction</li><li class="body-s">Digital and performance marketing</li><li class="body-s">Consumer data and insight</li><li class="body-s">New products and adjacencies</li></ul></div>
+    <div class="cap"><div class="top"><span class="dot"></span><h3 class="heading-xs">Operations</h3></div><ul role="list"><li class="body-s">Shared manufacturing</li><li class="body-s">International distribution</li><li class="body-s">Supply chain and cost of goods</li><li class="body-s">Finance, people and systems</li></ul></div>
   </div>
   <dl class="facts">
     <div class="fact"><dt class="eyebrow c-muted">Where</dt><dd class="heading-xs">Built from Europe. The United States first.</dd></div>
@@ -726,42 +723,11 @@ textarea.control{height:140px;resize:vertical}
 </section>
 
 
-<section class="section forces" id="forces">
-  <div class="header">
-    <p class="eyebrow c-crimson">08 · Three forces</p>
-    <h2 class="display-m">Three forces behind every brand we build.</h2>
-    <p class="body-l">Great consumer brands endure when three things come together. Most independent brands have one or two of them. Tresalis brings all three, for every brand in the house.</p>
-  </div>
-  <div class="force-cols">
-    <div class="force">
-      <div class="top"><p class="eyebrow c-crimson">Force one</p><h3 class="heading-s">Science</h3><p class="body-m">Products that demonstrably work, and claims that hold up with consumers, retailers and regulators.</p></div>
-      <ul role="list"><li class="body-s">Formulation and R&amp;D</li><li class="body-s">Clinical substantiation</li><li class="body-s">Ingredient sourcing</li><li class="body-s">Dermatology and nutrition expertise</li></ul>
-    </div>
-    <div class="force">
-      <div class="top"><p class="eyebrow c-crimson">Force two</p><h3 class="heading-s">Brand</h3><p class="body-m">Identity, voice and community that consumers trust, grown with care rather than folded into a portfolio.</p></div>
-      <ul role="list"><li class="body-s">Brand and creative direction</li><li class="body-s">Digital and performance marketing</li><li class="body-s">Consumer data and insight</li><li class="body-s">New products and adjacencies</li></ul>
-    </div>
-    <div class="force">
-      <div class="top"><p class="eyebrow c-crimson">Force three</p><h3 class="heading-s">Operations</h3><p class="body-m">The infrastructure that lets a brand grow across borders without losing quality or margin.</p></div>
-      <ul role="list"><li class="body-s">Shared manufacturing</li><li class="body-s">International distribution</li><li class="body-s">Supply chain and cost of goods</li><li class="body-s">Finance, people and systems</li></ul>
-    </div>
-  </div>
-  <div class="who">
-    <div class="left">
-      <p class="eyebrow c-muted">Who we are</p>
-      <p class="body-l">Tresalis is led by founders and operators who have built brands, run international operations and structured capital across Europe and the United States. We invest our own time and money alongside long-term investors, and we know what it means to hand over something you built.</p>
-    </div>
-    <div class="right">
-      <p class="eyebrow c-muted">Tres · salis</p>
-      <p class="body-m">Tres, three: the three forces every brand needs to endure, science, brand and operations. Salis, from the Latin sal: salt, long valued as something essential and life-giving.</p>
-    </div>
-  </div>
-</section>
 
 <section class="section contact" id="contact">
   <div class="columns">
     <div class="left">
-      <p class="eyebrow c-crimson">09 · Contact</p>
+      <p class="eyebrow c-crimson">08 · Contact</p>
       <h2 class="display-m">Thinking about the next chapter for your brand?</h2>
       <p class="body-m c-sec">Every conversation is confidential. Tell us a little about your brand and a founding partner will come back to you personally.</p>
       <div class="contact-block">
@@ -818,11 +784,11 @@ textarea.control{height:140px;resize:vertical}
     <div class="footer-cols">
       <div class="footer-col">
         <p class="eyebrow c-muted">Explore</p>
+        <a class="body-s" href="#forces">Tres · salis</a>
         <a class="body-s" href="#thesis">Thesis</a>
         <a class="body-s" href="#founders">For founders</a>
         <a class="body-s" href="#look">What we look for</a>
         <a class="body-s" href="#roadmap">Roadmap</a>
-        <a class="body-s" href="#forces">Three forces</a>
         <a class="body-s" href="#contact">Contact</a>
       </div>
       <div class="footer-col">
