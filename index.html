@@ -18,7 +18,7 @@
 <meta name="theme-color" content="#FBF9F6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet">
 <style>
 /* ---------- Tokens (Figma: Tresalis / Colour) ---------- */
 :root{
@@ -120,7 +120,9 @@ main>section:not(.contact)::after{content:"";position:absolute;inset:0;backgroun
 .fcall-science{left:33px;top:141px;align-items:flex-end;text-align:right}
 .fcall-brand{left:707px;top:141px;align-items:flex-start;text-align:left}
 .fcall-ops{left:370px;top:554px;align-items:center;text-align:center}
-.forces-title{font-style:italic;font-weight:300;text-align:center;width:100%;padding:0 24px}
+.forces-title{font-family:var(--jost);font-style:italic;font-weight:300;font-size:40px;line-height:52px;letter-spacing:-0.01em;text-align:center;width:100%;padding:0 24px}
+.forces-title strong{font-weight:500}
+.m-br{display:none}
 .m-only{display:none}
 /* unfold sequence: band → leader → text, one force at a time */
 .is-in .band{transition:transform 1s cubic-bezier(.22,.9,.3,1),opacity .5s ease-out;transform:none;opacity:1}
@@ -352,7 +354,8 @@ textarea.control{height:140px;resize:vertical}
   .fcall::before{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:50%;background:var(--crimson)}
   .fcall .heading-xs{display:none}
   .fcall .eyebrow{color:var(--ink)}
-  .forces-title{font-size:28px;line-height:36px;width:100%}
+  .forces-title{font-size:23px;line-height:29px;width:100%;padding:0}
+  .m-br{display:inline}
   .m-only{display:inline}
   .facts{flex-direction:column;gap:20px;padding-top:24px}
   .fact{gap:8px;flex-basis:auto}
@@ -365,7 +368,6 @@ textarea.control{height:140px;resize:vertical}
   .rail-line{flex:none}
   .rail-seg{flex:none;width:24px}
   .rail-label{flex:1 1 0;align-items:center;gap:12px}
-  .rail-label .caption:first-child{flex:0 0 20px}
   .rail-label .txt{flex:1 1 0;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
   .ways{gap:40px}
   .cards{flex-direction:column;gap:16px}
@@ -470,7 +472,7 @@ textarea.control{height:140px;resize:vertical}
 
 <section class="strip" aria-label="Tresalis at a glance">
   <div class="forces-panel" id="forces-panel" aria-label="Three forces: Science, Brand, Operations">
-    <h2 class="display-m forces-title">Tres: three forces. Salis: from the Latin sal, the essential.</h2>
+    <h2 class="forces-title"><strong>Tres:</strong> three forces.<br class="m-br"> <strong>Salis:</strong> from the Latin sal, the essential.</h2>
     <div class="forces-stage">
       <div class="forces-art">
       <svg class="band band-science" viewBox="346.7 149.8 506.6 438.7" aria-hidden="true"><path d="M351.0 579.3 Q346.7 581.8 349.2 577.4 L593.6 154.1 Q596.1 149.8 596.1 154.8 L596.1 290.7 Q596.1 295.7 593.6 300.0 L475.6 504.5 Q473.1 508.8 468.7 511.3 Z" fill="#231F20"/></svg>
@@ -511,11 +513,11 @@ textarea.control{height:140px;resize:vertical}
   <div class="convergence" aria-label="The consumer shift">
     <p class="eyebrow c-muted">The consumer shift</p>
     <ol class="rail" role="list">
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">i</span><div class="txt"><span class="heading-xs">Beauty</span><span class="caption c-muted">Looking better</span></div></div></li>
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">ii</span><div class="txt"><span class="heading-xs">Wellbeing</span><span class="caption c-muted">Feeling better</span></div></div></li>
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">iii</span><div class="txt"><span class="heading-xs">Prevention</span><span class="caption c-muted">Staying well</span></div></div></li>
-      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">iv</span><div class="txt"><span class="heading-xs">Healthy ageing</span><span class="caption c-muted">Ageing well</span></div></div></li>
-      <li class="rail-item is-last"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><span class="caption c-muted">v</span><div class="txt"><span class="heading-xs">Longevity</span><span class="caption c-muted">For longer</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><div class="txt"><span class="heading-xs">Beauty</span><span class="caption c-muted">Looking better</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><div class="txt"><span class="heading-xs">Wellbeing</span><span class="caption c-muted">Feeling better</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><div class="txt"><span class="heading-xs">Prevention</span><span class="caption c-muted">Staying well</span></div></div></li>
+      <li class="rail-item"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><div class="txt"><span class="heading-xs">Healthy ageing</span><span class="caption c-muted">Ageing well</span></div></div></li>
+      <li class="rail-item is-last"><div class="rail-line"><span class="rail-dot"></span><span class="rail-seg"></span></div><div class="rail-label"><div class="txt"><span class="heading-xs">Longevity</span><span class="caption c-muted">For longer</span></div></div></li>
     </ol>
   </div>
 </section>
